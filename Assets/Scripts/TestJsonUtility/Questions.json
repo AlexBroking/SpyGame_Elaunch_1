@@ -1,0 +1,41 @@
+{
+	"vragen": [{
+
+		"id": "UspLvl1",
+		"ProfTekst": "Malved software kan bij het opstarten in 20 seconden schadelijke software installeren.",
+
+		"A0": [{
+			"Tekst": "Chromebooks starten sneller op, namelijk in 7 seconden.",
+			"Answer": "false"
+		}],
+
+		"A1": [{
+			"Tekst": "Chromebooks starten sneller op, namelijk in 10 seconden.",
+			"Answer": "true"
+		}],
+
+		"A2": [{
+			"Tekst": "Chromebooks starten sneller op, namelijk in 15 seconden.",
+			"Answer": "false"
+		}]
+
+	}],
+
+	"id": "UspLvl2",
+	"ProfTekst": "Malved software kan bij het opstarten in 20 seconden schadelijke software installeren.",
+
+	"A0": [{
+		"Tekst": "Chromebooks starten sneller op, namelijk in 7 seconden.",
+		"Answer": "false"
+	}],
+
+	"A1": [{
+		"Tekst": "Chromebooks starten sneller op, namelijk in 10 seconden.",
+		"Answer": "true"
+	}],
+
+	"A2": [{
+		"Tekst": "Chromebooks starten sneller op, namelijk in 15 seconden.",
+		"Answer": "false"
+	}]
+}
