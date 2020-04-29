@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2533941774212665608}
   - component: {fileID: 555715884011009975}
-  - component: {fileID: -729941982053357298}
+  - component: {fileID: 3151033550853544706}
   m_Layer: 0
   m_Name: ZwStoel
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-729941982053357298
+--- !u!61 &3151033550853544706
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.4}
+  m_Offset: {x: 1.015, y: 1.56}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     oldSize: {x: 2.03, y: 3.12}
     newSize: {x: 2.03, y: 3.12}
     adaptiveTilingThreshold: 0.5
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.03, y: 2.3}
+  m_Size: {x: 2.03, y: 3.12}
   m_EdgeRadius: 0

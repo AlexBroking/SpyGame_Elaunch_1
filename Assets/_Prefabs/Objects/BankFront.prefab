@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6796464361248008637}
   - component: {fileID: 6785368634704979871}
-  - component: {fileID: 1221741338977871487}
+  - component: {fileID: 5437821895277137294}
   m_Layer: 0
   m_Name: BankFront
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1221741338977871487
+--- !u!61 &5437821895277137294
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
+  m_Offset: {x: 1.745, y: 1.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     oldSize: {x: 3.49, y: 2.16}
     newSize: {x: 3.49, y: 2.16}
     adaptiveTilingThreshold: 0.5
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.49, y: 1.6}
+  m_Size: {x: 3.49, y: 2.16}
   m_EdgeRadius: 0

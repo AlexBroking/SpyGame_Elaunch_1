@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6602152845728515809}
   - component: {fileID: 1309763508845129135}
-  - component: {fileID: 924269451067665833}
+  - component: {fileID: 6084956976675296105}
   m_Layer: 0
   m_Name: Chair1
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &924269451067665833
+--- !u!61 &6084956976675296105
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: -0.5}
+  m_Offset: {x: 1, y: 1.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     oldSize: {x: 3.98, y: 2.93}
     newSize: {x: 3.98, y: 2.93}
     adaptiveTilingThreshold: 0.5
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.7}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0

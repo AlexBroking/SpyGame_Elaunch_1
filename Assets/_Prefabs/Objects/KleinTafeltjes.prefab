@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7078310560302474418}
   - component: {fileID: 1257126271295234871}
-  - component: {fileID: 6055626678963093728}
+  - component: {fileID: 4281042046586541229}
   m_Layer: 0
   m_Name: KleinTafeltjes
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6055626678963093728
+--- !u!61 &4281042046586541229
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.915, y: 0.765}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     oldSize: {x: 1.83, y: 1.53}
     newSize: {x: 1.83, y: 1.53}
     adaptiveTilingThreshold: 0.5

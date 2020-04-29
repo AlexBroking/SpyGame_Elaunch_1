@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5021887902706602106}
   - component: {fileID: 1913814792246151611}
-  - component: {fileID: 8903437663278524186}
+  - component: {fileID: -964106262272375619}
   m_Layer: 0
   m_Name: StoelSide
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8903437663278524186
+--- !u!61 &-964106262272375619
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
+  m_Offset: {x: 1.015, y: 1.32}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     oldSize: {x: 2.03, y: 2.64}
     newSize: {x: 2.03, y: 2.64}
     adaptiveTilingThreshold: 0.5
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.03, y: 2}
+  m_Size: {x: 2.03, y: 2.64}
   m_EdgeRadius: 0
