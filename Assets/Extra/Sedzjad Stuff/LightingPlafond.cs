@@ -4,25 +4,40 @@ using UnityEngine;
 
 public class LightingPlafond : MonoBehaviour
 {
-    public GameObject _Player;
+    private GameObject _Player;
 
+    public MeshRenderer[] _MeshR;
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<BoxCollider2D>();
-    }
+        _Player = GameObject.Find("Player");
 
-    // Update is called once per frame
-    void Update()
-    {
         
+        _MeshR = new MeshRenderer[gameObject.GetComponentsInChildren<MeshRenderer>().Length];
+        _MeshR = gameObject.GetComponentsInChildren<MeshRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void PullTrigger(Collider2D collider)
     {
         if (_Player.GetComponent<EdgeCollider2D>())
         {
-            gameObject.SetActive(false);
+            
+            foreach (MeshRenderer _Mesh in _MeshR)
+            {
+
+                _Mesh.enabled = false;
+
+            }
+        }
+    }
+
+    public void LeavingArea(Collider2D collider)
+    {
+        foreach (MeshRenderer _Mesh in _MeshR)
+        {
+            _Mesh.enabled = true;
+
         }
     }
 }

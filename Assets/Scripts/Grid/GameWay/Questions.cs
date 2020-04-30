@@ -136,9 +136,9 @@ public class Questions : MonoBehaviour
             {
                 // Proftekst // 
                 questionTab.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].ProfTekst.ToString();
-                questionTab.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].A0[i].Tekst.ToString();
-                questionTab.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].A1[i].Tekst.ToString();
-                questionTab.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].A2[i].Tekst.ToString();
+                questionTab.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].A0[0].Tekst.ToString();
+                questionTab.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].A1[0].Tekst.ToString();
+                questionTab.transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<Text>().text = QuestionsInJson.vragen[i].A2[0].Tekst.ToString();
                 jsonQuestion = i;
             }
         }
@@ -159,6 +159,7 @@ public class Questions : MonoBehaviour
     {
         if (thisQuestionDoor.GetComponent<NewDoorBehaviour>().Qdoor == true)
         {
+            thisQuestionDoor.transform.parent.GetComponent<Animator>().speed = 1;
             thisQuestionDoor.GetComponent<NewDoorBehaviour>().Qdoor = false;
             thisQuestionDoor.GetComponent<NewDoorBehaviour>().greenDoor = true;
         }
@@ -167,12 +168,14 @@ public class Questions : MonoBehaviour
         {
             if (Answer == true)
             {
+                thisQuestionDoor.transform.parent.GetComponent<Animator>().speed = 1;
                 thisQuestionDoor.GetComponent<NewDoorBehaviour>().Pdoor = false;
                 thisQuestionDoor.GetComponent<NewDoorBehaviour>().greenDoor = true;
             }
 
             if (Answer == false)
             {
+                thisQuestionDoor.transform.parent.GetComponent<Animator>().speed = 1;
                 thisQuestionDoor.GetComponent<NewDoorBehaviour>().Pdoor = false;
                 thisQuestionDoor.GetComponent<NewDoorBehaviour>().blackDoor = true;
             }

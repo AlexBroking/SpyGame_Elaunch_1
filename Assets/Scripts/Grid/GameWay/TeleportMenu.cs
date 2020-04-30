@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ public class TeleportMenu : MonoBehaviour
 
     private float playerFeetYPos;
 
-    private List<Vector3> safePoints = new List<Vector3>();
+    private List<GameObject> safePoints = new List<GameObject>();
     private int whatSafePoint = 0;
 
     private PlayerControllerMovement playerControl;
@@ -39,20 +40,21 @@ public class TeleportMenu : MonoBehaviour
         {
             spawnPoint = GameObject.Find("SpawnPoint");
             safeAreas = GameObject.Find("SafeAreas");
-            safeAreas = GameObject.Find("SafeAreas");
             endPoint = GameObject.Find("EndPoint");
             Player = GameObject.Find("Player");
             playerControl = Player.GetComponent<PlayerControllerMovement>();
 
             playerFeetYPos = (Player.GetComponent<EdgeCollider2D>().offset.y) - (Player.GetComponent<EdgeCollider2D>().bounds.size.y / 2);
 
-            safePoints.Add(new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y - playerFeetYPos, spawnPoint.transform.position.z));
+            safePoints.Add(spawnPoint);
+            spawnPoint.GetComponent<SpriteRenderer>().enabled = false;
+            endPoint.GetComponent<SpriteRenderer>().enabled = false;
             for (int i = 0; i < safeAreas.transform.childCount; i++)
             {
-                var child = safeAreas.transform.GetChild(i).position;
-                safePoints.Add(new Vector3(child.x, child.y - playerFeetYPos, child.z));
+                var child = safeAreas.transform.GetChild(i).gameObject;
+                child.GetComponent<SpriteRenderer>().enabled = false;
+                safePoints.Add(child);
             }
-            Destroy(spawnPoint);
 
             // Teleports back to last safepoint // 
             teleportPlayer();
@@ -65,21 +67,25 @@ public class TeleportMenu : MonoBehaviour
     {
         if(collision.gameObject.tag == "Waypoint")
         {
-            whatSafePoint += 1;
-            Destroy(collision.gameObject);
+            for (int i = 0; i < safePoints.Count; i++)
+            {
+                if (collision.GetInstanceID() == safePoints[i].GetInstanceID())
+                {
+                    whatSafePoint = i;
+                }
+            }
         }
 
         if(collision.gameObject == endPoint)
         {
-            Debug.Log("endGame");
-            Destroy(collision.gameObject);
+            Debug.Log("reached the end");
         }
     }
 
     // Teleports player back to the last safe point // 
     public void teleportPlayer()
     {
-        Player.transform.position = safePoints[whatSafePoint];
+        Player.transform.position = new Vector3(safePoints[whatSafePoint].transform.position.x + 1.98f, safePoints[whatSafePoint].transform.position.y + 3f, safePoints[whatSafePoint].transform.position.z);
     }
 
 

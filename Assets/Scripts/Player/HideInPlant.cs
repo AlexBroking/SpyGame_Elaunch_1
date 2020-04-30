@@ -7,7 +7,7 @@ public class HideInPlant : MonoBehaviour
 
     // Plant // 
     private bool foundPlant = false;
-    private bool inPlant = false;
+    public bool inPlant = false;
     private GameObject selectedPlant;
     private Vector3 foundPlantPos;
     public bool goingInPlant = false;
@@ -81,7 +81,7 @@ public class HideInPlant : MonoBehaviour
                             // If player is in plant and wants to get out //
                             if (inPlant == true && goingOutPlant == false && waittoClick == false)
                             {
-                                playerAnim.SetInteger("PlayerAnimation", 6);
+                                playerAnim.SetInteger("PlayerAnimation", 1);
                                 goingOutPlant = true;
                             }
                         }
