@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8813070941759980150}
   m_Layer: 0
   m_Name: Top_straight
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30000
   m_Sprite: {fileID: 21300000, guid: 5df1b27e5f28988488d400fa8c125158, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.99, y: 0.73}
+  m_Offset: {x: 0.99, y: -0.73}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

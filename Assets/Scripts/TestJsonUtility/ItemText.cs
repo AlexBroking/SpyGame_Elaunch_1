@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ItemText
 {
-    public Iteminfo[] itemtext;
+    public Iteminfo[] Items;
 }
 
 [System.Serializable]

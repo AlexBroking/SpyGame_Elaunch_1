@@ -13,6 +13,7 @@ public class PlayerAnimation : MonoBehaviour
     private PlayerShocked shocked;
     private PlayerItem playerPickup;
     private GameObject canvas;
+    private HideInPlant hidePlant;
     private float degrees;
     private bool isPlayerMoving = false;
     private bool canPlayerMove = false;
@@ -21,7 +22,11 @@ public class PlayerAnimation : MonoBehaviour
     private bool pickUpItem = false;
     private bool hackingItem = false;
     private bool startAni = false;
-    
+    private bool inPlant = false;
+    private bool inPlant2 = false;
+
+    public AudioSource audioData;
+    private bool canstep = true;
 
     void Start()
     {
@@ -33,8 +38,18 @@ public class PlayerAnimation : MonoBehaviour
         shocked = Player.GetComponent<PlayerShocked>();
         playerPickup = Player.GetComponent<PlayerItem>();
         canvas = GameObject.Find("Canvas");
+        audioData = Player.GetComponent<AudioSource>();
+        hidePlant = Player.GetComponent<HideInPlant>();
 
         playerAni.SetInteger("PlayerAnimation", 1);
+    }
+
+    IEnumerator WaitForStepping()
+    {
+        canstep = false;
+        audioData.Play(0);
+        yield return new WaitForSeconds(0.3f);
+        canstep = true;
     }
 
     void Update()
@@ -46,6 +61,8 @@ public class PlayerAnimation : MonoBehaviour
         isShocked = shocked.isShocking;
         pickUpItem = playerPickup.PickupNow;
         hackingItem = playerPickup.HackingNow;
+        inPlant = hidePlant.goingInPlant;
+        inPlant2 = hidePlant.inPlant;
         
 
         if (startAni == false)
@@ -55,13 +72,19 @@ public class PlayerAnimation : MonoBehaviour
             {
                 playerControll.canMove = true;
                 startAni = true;
-                
+                canvas.SetActive(true);
+
             }
         }
 
 
         if (isPlayerMoving == true && canPlayerMove == true)
         {
+            if (canstep == true)
+            {
+                StartCoroutine(WaitForStepping());
+            }
+
             if (degrees >0  && degrees < 180)
             {
                 if (isHeDashing == false)
@@ -102,7 +125,6 @@ public class PlayerAnimation : MonoBehaviour
                     sprite.flipX = true;
                 }
             }
-        
         } 
 
         if (isPlayerMoving == false && isShocked == false && canPlayerMove == true)
@@ -137,37 +159,64 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
 
-        if (canPlayerMove == false && isShocked == true)
+        if (isShocked == false && canPlayerMove == false && hackingItem == false && pickUpItem == false && inPlant == false && inPlant2 == false)
         {
-            if (isShocked == true)
+            if (degrees > 0 && degrees < 180)
             {
-                var thisAni = playerAni.GetInteger("PlayerAnimation");
-
-                if (thisAni == 1 || thisAni == 3 || thisAni == 7)
+                playerAni.SetInteger("PlayerAnimation", 2);
+                if (degrees > 0 && degrees < 90)
                 {
-                    playerAni.SetInteger("PlayerAnimation", 9);
+                    sprite.flipX = false;
                 }
 
-                if (thisAni == 2 || thisAni == 4 || thisAni == 6)
+                if (degrees > 90 && degrees < 180)
                 {
-                    playerAni.SetInteger("PlayerAnimation", 8);
+                    sprite.flipX = true;
+                }
+            }
+
+            if (degrees < 360 && degrees > 180)
+            {
+                playerAni.SetInteger("PlayerAnimation", 1);
+                if (degrees < 260 && degrees > 270)
+                {
+                    sprite.flipX = false;
                 }
 
-                if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Shock_Down_Animation_9") == true || playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Shock_Up_Animation_8") == true)
+                if (degrees < 270 && degrees > 180)
                 {
-
-                    shocked.aniWorking = true;
+                    sprite.flipX = true;
                 }
+            }
+        }
+        
 
-                if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle_Up_Animation_2") == true || playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle_Down_Animation_1") == true)
-                {
+        if (canPlayerMove == false && isShocked == true && pickUpItem == false && hackingItem == false)
+        {
+            var thisAni = playerAni.GetInteger("PlayerAnimation");
 
-                    shocked.aniWorking = false;
-                    shocked.isShocking = false;
-                    playerControll.canMove = true;
-                }
+            if (thisAni == 1 || thisAni == 3 || thisAni == 7)
+            {
+                playerAni.SetInteger("PlayerAnimation", 9);
+            }
 
+            if (thisAni == 2 || thisAni == 4 || thisAni == 6)
+            {
+                playerAni.SetInteger("PlayerAnimation", 8);
+            }
 
+            if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Shock_Down_Animation_9") == true || playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Shock_Up_Animation_8") == true)
+            {
+
+                shocked.aniWorking = true;
+            }
+
+            if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle_Up_Animation_2") == true || playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle_Down_Animation_1") == true)
+            {
+
+                shocked.aniWorking = false;
+                shocked.isShocking = false;
+                playerControll.canMove = true;
             }
         }
 
@@ -195,10 +244,16 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerAni.SetInteger("PlayerAnimation", 13);
 
+            if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Hack_Animation") == true)
+            {
+                playerAni.SetInteger("PlayerAnimation", 1);
+            }
+
             if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Player_Idle_Down_Animation_1") == true)
             {
                 playerControll.canMove = true;
                 playerPickup.HackingNow = false;
+                hackingItem = false;
             }
         }
     }

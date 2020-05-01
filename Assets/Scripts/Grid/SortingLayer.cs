@@ -93,7 +93,7 @@ public class SortingLayer : MonoBehaviour
         // Player feet position (Box Collider)
         float positionY = playerY  + (playerObject.GetComponent<EdgeCollider2D>().offset.y) - (playerObject.GetComponent<EdgeCollider2D>().bounds.size.y / 2);
 
-        SetLayer(wallsLayer, wallsMenu, positionY);
+        SetLayer(wallsMenu, positionY);
     }
 
     // Obstacles // Object = Boven - Player = Laag  
@@ -102,7 +102,7 @@ public class SortingLayer : MonoBehaviour
         // Player feet position (Box Collider)
         float positionY = playerY  + (playerObject.GetComponent<EdgeCollider2D>().offset.y) - (playerObject.GetComponent<EdgeCollider2D>().bounds.size.y / 2) - (playerObject.GetComponent<EdgeCollider2D>().bounds.size.y / 10);
 
-        SetLayer(obstaclesLayer, obstaclesMenu, positionY);
+        SetLayer(obstaclesMenu, positionY);
     }
 
     // Objects // Object = Midden - Player = Midden
@@ -111,12 +111,12 @@ public class SortingLayer : MonoBehaviour
         // Player Middle Position (Box Collider)
         float positionY = playerY + (playerObject.GetComponent<EdgeCollider2D>().offset.y);
 
-        SetLayer(objectsLayer, objectsMenu, positionY);
+        SetLayer(objectsMenu, positionY);
     }
 
-    void SetLayer(GameObject lObject, Dictionary<GameObject, float> dicO, float yPosition)
+    void SetLayer(Dictionary<GameObject, float> dicO, float yPosition)
     {
-        for (int j = 0; j < lObject.transform.childCount; j++)
+        for (int j = 0; j < dicO.Count; j++)
         {
             if (dicO.Values.ElementAt(j) > yPosition)
             {

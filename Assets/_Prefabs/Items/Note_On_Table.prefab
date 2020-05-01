@@ -44,7 +44,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.99, y: -1.46}
+  m_Offset: {x: 1.96, y: -1.46}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -55,7 +55,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.94, y: 2.92}
+  m_Size: {x: 7.17, y: 7.46}
   m_EdgeRadius: 0
 --- !u!1 &7572046518723649947
 GameObject:
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_Sprite: {fileID: 21300000, guid: 4f8a7bc7c43000e46aa56c2eec13e6eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -183,5 +183,5 @@ MonoBehaviour:
   NormalImage: {fileID: 0}
   glowImage: {fileID: 21300000, guid: c4448cf09d8028b4da6bf155990f9430, type: 3}
   invItem: {fileID: 21300000, guid: 092cc0f6998e9e547be47b4ed1d96a98, type: 3}
-  tekstItem: work
+  tekstItem: 
   hacking: 0

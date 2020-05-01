@@ -26,14 +26,14 @@ public class ItemsDataScript : MonoBehaviour
     void Start()
     {
         itemTab = GameObject.Find("ItemTab");
-        closeTab = itemTab.transform.GetChild(1).gameObject;
+        closeTab = itemTab.transform.GetChild(2).gameObject;
+
 
         controlCircle = GameObject.Find("Control_Circle");
 
-        itemTab.transform.GetChild(0).GetComponent<Renderer>().sortingLayerName = "Question";
-
         invScript = this.gameObject.GetComponent<PlayerInventoryButton>();
         playerMove = this.gameObject.GetComponent<PlayerControllerMovement>();
+
 
         itemTab.SetActive(false);
         QuestionsInJson = JsonUtility.FromJson<ItemText>(jsonFile.text);
@@ -71,10 +71,11 @@ public class ItemsDataScript : MonoBehaviour
                                 if (invScript.inventoryHolder.transform.GetChild(i).GetChild(0).GetComponent<BoxCollider2D>().bounds.Contains(mousePos))
                                 {
                                     GameObject childOBJ = invScript.inventoryHolder.transform.GetChild(i).gameObject;
-                                    
-                                    for (int j = 0; j < QuestionsInJson.itemtext.Length; j++)
+
+                                    for (int j = 0; j < QuestionsInJson.Items.Length; j++)
                                     {
-                                        if (QuestionsInJson.itemtext[i].id.ToString() == childOBJ.name)
+                                        Debug.Log("test");
+                                        if (QuestionsInJson.Items[j].id.ToString() == childOBJ.name)
                                         {
                                             OpenTab(j);
                                         }
@@ -104,7 +105,7 @@ public class ItemsDataScript : MonoBehaviour
     public void OpenTab(int numberText)
     {
         itemTab.SetActive(true);
-        itemTab.transform.GetChild(0).GetComponent<Text>().text = QuestionsInJson.itemtext[numberText].Tekst.ToString();
+        itemTab.transform.GetChild(0).GetComponent<Text>().text = QuestionsInJson.Items[numberText].Tekst.ToString();
         openTab = true;
         canClickonItem = false;
         playerMove.canMove = false;

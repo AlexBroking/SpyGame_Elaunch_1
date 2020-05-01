@@ -20,9 +20,11 @@ public class Lasers : MonoBehaviour
     // timer //
     public int laserSeconds;
     private float timer;
+    private GameObject player;
 
     void Start()
     {
+        player = GameObject.Find("Player");
         leftOutput = this.gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).transform.position;
         rightOutput = this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).transform.position;
 
@@ -40,12 +42,34 @@ public class Lasers : MonoBehaviour
 
         laser.transform.GetComponent<SpriteRenderer>().enabled = true;
         laser.transform.GetComponent<BoxCollider2D>().enabled = true;
+
+        laser.transform.position = new Vector3((leftOutput.x + rightOutput.x), (leftOutput.y + rightOutput.y), 0) / 2;
+        laser.GetComponent<BoxCollider2D>().offset = new Vector2(0, -1.46f);
     }
 
 
     void Update()
     {
-        laser.transform.position = new Vector3((leftOutput.x + rightOutput.x), (leftOutput.y + rightOutput.y), 0) / 2;
+        float positionY = player.transform.position.y;
+        positionY = positionY + (player.GetComponent<EdgeCollider2D>().offset.y);
+
+        float laserPositionY = laser.transform.position.y;
+        laserPositionY = laserPositionY + (laser.GetComponent<BoxCollider2D>().offset.y);
+
+        if (laserPositionY > positionY)
+        {
+            laser.GetComponent<SpriteRenderer>().sortingLayerName = "BackObjectLayer";
+            this.gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().sortingLayerName = "BackObjectLayer";
+            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().sortingLayerName = "BackObjectLayer";
+        }
+
+        if (laserPositionY < positionY)
+        {
+
+            laser.GetComponent<SpriteRenderer>().sortingLayerName = "FrontObjectLayer";
+            this.gameObject.transform.GetChild(2).GetComponent<SpriteRenderer>().sortingLayerName = "FrontObjectLayer";
+            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().sortingLayerName = "FrontObjectLayer";
+        }
 
         if (laserOn == true)
         {
