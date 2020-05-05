@@ -9,6 +9,8 @@ public class Lasers : MonoBehaviour
     private Animator laserAni;
     public Animator buttonAniOne;
     public Animator buttonAniTwo;
+    private GameObject buttonOne;
+    private GameObject buttonTwo;
     public bool laserOn;
 
     private float scale;
@@ -24,6 +26,8 @@ public class Lasers : MonoBehaviour
 
     void Start()
     {
+        buttonOne = gameObject.transform.GetChild(0).gameObject;
+        buttonTwo = gameObject.transform.GetChild(1).gameObject;
         player = GameObject.Find("Player");
         leftOutput = this.gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).transform.position;
         rightOutput = this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).transform.position;
@@ -55,6 +59,29 @@ public class Lasers : MonoBehaviour
 
         float laserPositionY = laser.transform.position.y;
         laserPositionY = laserPositionY + (laser.GetComponent<BoxCollider2D>().offset.y);
+
+        float ButtonOneY = buttonOne.transform.position.y - 1.46f;
+
+        float ButtonTwoY = buttonTwo.transform.position.y - 1.46f;
+
+        if (ButtonOneY > positionY)
+        {
+            buttonOne.GetComponent<SpriteRenderer>().sortingLayerName = "BackObjectLayer";
+        }
+        if (ButtonOneY < positionY)
+        {
+            buttonOne.GetComponent<SpriteRenderer>().sortingLayerName = "FrontObjectLayer";
+        }
+
+        if (ButtonTwoY > positionY)
+        {
+            buttonTwo.GetComponent<SpriteRenderer>().sortingLayerName = "BackObjectLayer";
+        }
+        if (ButtonTwoY < positionY)
+        {
+            buttonTwo.GetComponent<SpriteRenderer>().sortingLayerName = "FrontObjectLayer";
+        }
+
 
         if (laserPositionY > positionY)
         {

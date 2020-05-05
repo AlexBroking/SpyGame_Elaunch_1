@@ -14,16 +14,12 @@ public class EnemyAI : MonoBehaviour
     // Guard Object // 
     private Animator guardAni;
     private GameObject Guard;
-    private float startAniPosition;
-    private float lookedAtPos;
     public float guardTurnDegrees;
     public bool turned = true;
-    private bool canWalk = false;
     
 
     // Guard && Player // 
     private float guardToPlayerDegrees;
-    private float oldGuardToPlayerDegrees;
     private int randomTurnInt;
 
     // Player // 
@@ -36,7 +32,7 @@ public class EnemyAI : MonoBehaviour
     // Scripts // 
     private GuardAnimation guardAniScript;
 
-    private bool turning = false;
+    public bool turning = false;
     private float wantToTurnToThis;
     public bool doneTurning = true;
     public List<Vector3> movePositions = new List<Vector3>();
@@ -44,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     private int maxWalk;
     public bool didAlreadyTurnToWalk = false;
     public float guardToWalkingPostionDegrees;
-    private SpriteRenderer Gsprite;
+    public bool caughtPlayer;
 
     void Start()
     {
@@ -52,7 +48,6 @@ public class EnemyAI : MonoBehaviour
         Guard = this.gameObject;
         guardAni = Guard.GetComponent<Animator>();
         guardAniScript = Guard.GetComponent<GuardAnimation>();
-        Gsprite = Guard.GetComponent<SpriteRenderer>();
 
         guardTurnDegrees = 0;
 
@@ -77,14 +72,39 @@ public class EnemyAI : MonoBehaviour
         {
             if (doneTurning == true)
             {
-                if (guardTurnDegrees != wantToTurnToThis)
+                if (caughtPlayer == true)
                 {
-                    TurnToWay(wantToTurnToThis);
+                    turning = true;
+                    StartCoroutine(guardAniScript.CaughtPlayer());
                 }
 
-                if (guardTurnDegrees == wantToTurnToThis)
+                if (heardPlayer == false && caughtPlayer == false)
                 {
-                    turning = false;
+                    if (guardTurnDegrees != wantToTurnToThis)
+                    {
+                        TurnToWay(wantToTurnToThis);
+                    }
+
+                    if (guardTurnDegrees == wantToTurnToThis)
+                    {
+                        turning = false;
+                    }
+                }
+
+                if (heardPlayer == true && caughtPlayer == false)
+                {
+                    if (guardTurnDegrees != guardToPlayerDegrees)
+                    {
+                        TurnToWay(guardToPlayerDegrees);
+                    }
+
+                    if (guardTurnDegrees == guardToPlayerDegrees)
+                    {
+                        turning = false;
+                        heardPlayer = false;
+                        didAlreadyTurnToWalk = false;
+                        
+                    }
                 }
             }
 
@@ -92,15 +112,16 @@ public class EnemyAI : MonoBehaviour
             {
                 DoingHisThing();
             }
+
+            
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         // If player has been found by the guard // 
         if (collision.gameObject.tag == "Player")
         {
-
             // If player walked in while guard was not looking for him yet // 
             if (heardPlayer == false)
             {
@@ -111,8 +132,7 @@ public class EnemyAI : MonoBehaviour
                 if (heardPlayerPos.y < Guard.transform.position.y)
                 {
                     guardToPlayerDegrees += 360;
-                }
-                oldGuardToPlayerDegrees = guardToPlayerDegrees;
+                };
 
                 // Check what is closest degrees // 
                 float shortestTest = 9999;
@@ -141,12 +161,11 @@ public class EnemyAI : MonoBehaviour
         doneTurning = false;
         turning = true;
         wantToTurnToThis = turnToThis;
+        guardAni.SetBool("Walking", false);
 
         // If looking right // 
         if (guardTurnDegrees == 0)
         {
-            guardAni.SetInteger("GuardAnim", 3);
-            Gsprite.flipX = false;
             if (turnToThis == 90) { StartCoroutine(guardAniScript.TurntoPosition(0, 90)); }
             if (turnToThis == 180)
             {
@@ -159,8 +178,6 @@ public class EnemyAI : MonoBehaviour
         // If looking Up // 
         if (guardTurnDegrees == 90)
         {
-            guardAni.SetInteger("GuardAnim", 2);
-            Gsprite.flipX = false;
             if (turnToThis == 0) { StartCoroutine(guardAniScript.TurntoPosition(90, 0)); }
             if (turnToThis == 180) { StartCoroutine(guardAniScript.TurntoPosition(90, 180)); }
             if (turnToThis == 270)
@@ -173,8 +190,6 @@ public class EnemyAI : MonoBehaviour
         // If looking Left // 
         if (guardTurnDegrees == 180)
         {
-            guardAni.SetInteger("GuardAnim", 3);
-            Gsprite.flipX = true;
             if (turnToThis == 0)
             {
                 if (randomTurnInt == 0) { StartCoroutine(guardAniScript.TurntoPosition(180, 90)); }
@@ -186,9 +201,7 @@ public class EnemyAI : MonoBehaviour
 
         // If looking Down // 
         if (guardTurnDegrees == 270)
-        {
-            guardAni.SetInteger("GuardAnim", 1);
-            Gsprite.flipX = false;
+        { 
             if (turnToThis == 0) { StartCoroutine(guardAniScript.TurntoPosition(270, 0)); }
             if (turnToThis == 90)
             {
@@ -198,8 +211,6 @@ public class EnemyAI : MonoBehaviour
             if (turnToThis == 180) { StartCoroutine(guardAniScript.TurntoPosition(270, 180)); }
         }
     }
-
-
 
     private void DoingHisThing()
     {
@@ -227,9 +238,7 @@ public class EnemyAI : MonoBehaviour
                     CheckWalkPos();
 
                 }
-            }
-
-                
+            }  
         }
     }
 
@@ -242,7 +251,6 @@ public class EnemyAI : MonoBehaviour
         {
             guardToWalkingPostionDegrees += 360;
         }
-        oldGuardToPlayerDegrees = guardToWalkingPostionDegrees;
 
         // Check what is closest degrees // 
         float shortestTest = 9999;

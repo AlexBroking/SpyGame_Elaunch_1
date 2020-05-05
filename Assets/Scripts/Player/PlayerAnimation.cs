@@ -257,4 +257,15 @@ public class PlayerAnimation : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Light")
+        {
+            playerControll.canMove = false;
+            playerAni.SetInteger("PlayerAnimation", 10);
+            collision.transform.parent.parent.GetComponent<EnemyAI>().caughtPlayer = true;
+
+        }
+    }
 }

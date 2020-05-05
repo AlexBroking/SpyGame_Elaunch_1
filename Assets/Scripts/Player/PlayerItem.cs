@@ -59,7 +59,7 @@ public class PlayerItem : MonoBehaviour
 
                             if (foundObjectScript.hacking == false)
                             {
-                                Destroy(foundItem);
+                                foundItem.transform.parent.gameObject.SetActive(false);
                                 PickupNow = true;
                             }
 

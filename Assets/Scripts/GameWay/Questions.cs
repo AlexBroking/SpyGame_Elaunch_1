@@ -56,13 +56,13 @@ public class Questions : MonoBehaviour
                             {
                                 if (questionTab.transform.GetChild(0).GetChild(i).name == "0")
                                 {
-                                    if (QuestionsInJson.vragen[jsonQuestion].A0[jsonQuestion].Answer.ToString() == "False")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A0[0].Answer.ToString() == "False")
                                     {
                                         Debug.Log("false");
                                         doorAnswer = false;
                                     }
 
-                                    if (QuestionsInJson.vragen[jsonQuestion].A0[jsonQuestion].Answer.ToString() == "true")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A0[0].Answer.ToString() == "true")
                                     {
                                         Debug.Log("true");
                                         doorAnswer = true;
@@ -71,13 +71,13 @@ public class Questions : MonoBehaviour
 
                                 if (questionTab.transform.GetChild(0).GetChild(i).name == "1")
                                 {
-                                    if (QuestionsInJson.vragen[jsonQuestion].A1[jsonQuestion].Answer.ToString() == "False")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A1[0].Answer.ToString() == "False")
                                     {
                                         Debug.Log("false");
                                         doorAnswer = false;
                                     }
 
-                                    if (QuestionsInJson.vragen[jsonQuestion].A1[jsonQuestion].Answer.ToString() == "true")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A1[0].Answer.ToString() == "true")
                                     {
                                         Debug.Log("true");
                                         doorAnswer = true;
@@ -86,13 +86,13 @@ public class Questions : MonoBehaviour
 
                                 if (questionTab.transform.GetChild(0).GetChild(i).name == "2")
                                 {
-                                    if (QuestionsInJson.vragen[jsonQuestion].A2[jsonQuestion].Answer.ToString() == "False")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A2[0].Answer.ToString() == "False")
                                     {
                                         Debug.Log("false");
                                         doorAnswer = false;
                                     }
 
-                                    if (QuestionsInJson.vragen[jsonQuestion].A2[jsonQuestion].Answer.ToString() == "true")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A2[0].Answer.ToString() == "true")
                                     {
                                         Debug.Log("true");
                                         doorAnswer = true;

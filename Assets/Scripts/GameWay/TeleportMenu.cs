@@ -28,12 +28,8 @@ public class TeleportMenu : MonoBehaviour
     private GameObject endPoint;
     private GameObject Player;
 
-    private float playerFeetYPos;
-
     private List<GameObject> safePoints = new List<GameObject>();
     private int whatSafePoint = 0;
-
-    private PlayerControllerMovement playerControl;
 
     void Start()
     {
@@ -43,9 +39,6 @@ public class TeleportMenu : MonoBehaviour
             safeAreas = GameObject.Find("SafeAreas");
             endPoint = GameObject.Find("EndPoint");
             Player = GameObject.Find("Player");
-            playerControl = Player.GetComponent<PlayerControllerMovement>();
-
-            playerFeetYPos = (Player.GetComponent<EdgeCollider2D>().offset.y) - (Player.GetComponent<EdgeCollider2D>().bounds.size.y / 2);
 
             safePoints.Add(spawnPoint);
             spawnPoint.GetComponent<SpriteRenderer>().enabled = false;
@@ -87,6 +80,9 @@ public class TeleportMenu : MonoBehaviour
     public void teleportPlayer()
     {
         Player.transform.position = new Vector3(safePoints[whatSafePoint].transform.position.x + 1.98f, safePoints[whatSafePoint].transform.position.y + 3f, safePoints[whatSafePoint].transform.position.z);
+        Player.GetComponent<Animator>().SetInteger("PlayerAnimation", 1);
+        GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>().canMove = true;
+        GameObject.Find("Main Camera").transform.position = Player.transform.position;
     }
 
 

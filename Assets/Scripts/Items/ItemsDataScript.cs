@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ItemsDataScript : MonoBehaviour
 {
-    private string ItemsString;
 
     private GameObject itemTab;
     private GameObject closeTab;

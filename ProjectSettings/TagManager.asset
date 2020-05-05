@@ -11,6 +11,7 @@ TagManager:
   - LaserTrigger
   - Item
   - Collider
+  - Light
   layers:
   - Default
   - TransparentFX
