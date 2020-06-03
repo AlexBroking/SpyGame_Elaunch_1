@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class PlayerInventoryButton : MonoBehaviour
 {
     // Objects // 
-    private GameObject outPull;
+    public GameObject outPull;
     public GameObject ButtonIcon;
     public GameObject inventoryManager;
     public GameObject inventoryHolder;
@@ -36,53 +36,52 @@ public class PlayerInventoryButton : MonoBehaviour
         inventoryManager = GameObject.Find("InventoryManager");
         inventoryHolder = GameObject.Find("InventoryHolder");
 
-        outPullStart = new Vector3(1.275f, 0, 0) + ButtonIcon.transform.position;
-        outPullEnd = new Vector3(7.915f, 0, 0) + ButtonIcon.transform.position;
-
-        outPull.transform.position = outPullStart;
-
     }
 
 
     void Update()
     {
-        outPullStart = new Vector3(1.275f, 0, 0) + ButtonIcon.transform.position;
-        outPullEnd = new Vector3(7.915f, 0, 0) + ButtonIcon.transform.position;
+        outPullStart = ButtonIcon.transform.position;
+        outPullEnd = new Vector3(7.915f + ButtonIcon.transform.position.x, ButtonIcon.transform.position.y + 0.01f, ButtonIcon.transform.position.z);
 
+        
         if (closingInv == false)
         {
-            if (Input.touchCount > 0)
+            if (ButtonIcon.activeSelf == true)
             {
-                foreach (Touch touch in Input.touches)
+                if (Input.touchCount > 0)
                 {
-                    touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-                    touchPos = new Vector3(touchPos.x, touchPos.y, ButtonIcon.transform.position.z);
-
-                    if (touch.phase == TouchPhase.Began)
+                    foreach (Touch touch in Input.touches)
                     {
-                        if (pulledOut == false)
+                        touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+                        touchPos = new Vector3(touchPos.x, touchPos.y, ButtonIcon.transform.position.z);
+
+                        if (touch.phase == TouchPhase.Began)
                         {
-                            if (ButtonIcon.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
+                            if (pulledOut == false)
                             {
-                                pulledOut = true;
-                            }
+                                if (ButtonIcon.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
+                                {
+                                    pulledOut = true;
+                                }
 
-                            if (outPull.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
-                            {
-                                pulledOut = true;
+                                if (outPull.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
+                                {
+                                    pulledOut = true;
+                                }
                             }
-                        }
-                        else
-                        {
-                            if (outPull.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
+                            else
                             {
-                                pulledOut = false;
+                                if (outPull.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
+                                {
+                                    pulledOut = false;
 
-                            }
+                                }
 
-                            if (ButtonIcon.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
-                            {
-                                pulledOut = false;
+                                if (ButtonIcon.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
+                                {
+                                    pulledOut = false;
+                                }
                             }
                         }
                     }
@@ -117,7 +116,7 @@ public class PlayerInventoryButton : MonoBehaviour
             outPull.transform.position = Vector3.Lerp(outPull.transform.position, outPullStart, pullSpeed * Time.deltaTime);
             inventoryManager.transform.GetChild(3).GetComponent<SpriteMask>().enabled = false;
 
-            if (Vector3.Distance(outPull.transform.position, outPullStart) <= 0.05f)
+            if (Vector3.Distance(outPull.transform.position, outPullStart) <= 0.5f)
             {
                 closingInv = false;
                 outPull.transform.position = outPullStart;

@@ -1,12 +1,82 @@
 ﻿{
-	"Items" : [
-			{
-			"id": "UspLvl1",
-			"Tekst": "Evil plan:​ Het installeren van beschadigende software op alle laptops! Deze installatiemoet gebeuren tijdens het opstarten van je laptop en duurt ongeveer 20 seconden. Chromebooks to the rescue:​ Chromebooks starten op in 10 seconden! Geen tijd dusvoor de hackers om hun beschadigende software te installeren."
-			},	
-			{
+	"Items": [
+		{
 			"id": "Notitie1",
-			"Tekst": "Evil plan: ​Het verspreiden van persoonlijke data! Zeg maar dag tegen je privacy. Chromebooks to the rescue: ​Chromebooks gebruiken data encryptie om je ten alletijde te beschermen tegen hackers!"
-			}
-]
+			"Kind": "Notitie",
+			"Image": "note 1",
+			"HeadTekst": "Notitie",
+			"Tekst": "Het installeren van beschadigende software op alle laptops! Deze installatie moet gebeuren tijdens het opstarten van je laptop en duurt ongeveer 20 seconden. Chromebooks to the rescue:​ Chromebooks starten op in 10 seconden! Geen tijd dusvoor de hackers om hun beschadigende software te installeren."
+		},
+		{
+			"id": "Notitie2",
+			"Kind": "Notitie",
+			"Image": "note 2",
+			"HeadTekst": "Notitie",
+			"Tekst": "​Het verspreiden van persoonlijke data! Zeg maar dag tegen je privacy. Chromebooks to the rescue: ​Chromebooks gebruiken data encryptie om je ten alletijde te beschermen tegen hackers!"
+		},
+		{
+			"id": "Notitie3",
+			"Kind": "Notitie",
+			"Image": "note 3",
+			"HeadTekst": "Notitie",
+			"Tekst": "​Als jij lekker ligt te slapen wilt het hacker bedrijf beschadigende softwareinstalleren op je laptop. Chromebook to the rescue: ​Verified Boot zorgt ervoor dat je Chromebook eencontrole uitvoert elke keer als de laptop opnieuw opstart. Bij deze controle wordtgekeken naar corrupties, en als er iets niet klopt dan wordt dat automatisch hersteld!"
+		},
+		{
+			"id": "Notitie4",
+			"Kind": "Notitie",
+			"Image": "Usp1",
+			"HeadTekst": "Notitie",
+			"Tekst": "​Het hacker bedrijf heeft een nep OS gemaakt wat ze in de komende tweemaanden willen proberen te installeren op alle laptops. Chromebook to the rescue: ​Gelukkig hebben Chromebooks elke 6 weken eenautomatische OS update dus op deze manier ben jij altijd up to date met de laatste enbeste ChromeOS."
+		},
+		{
+			"id": "Notitie5",
+			"Kind": "Notitie",
+			"Image": "Usp1",
+			"HeadTekst": "Notitie",
+			"Tekst": "​Het hacker bedrijf heeft een leuk uitziende website opgezet, maar pas opwant als je hier terecht komt dan wordt er een virus gedownload op je laptop! Chromebook to the rescue: ​Met sandboxing zorgt ChromeOS ervoor datbedreigingen geïsoleerd worden en virussen niet je laptop kunnen besmetten! Duszelfs als je een website opent met beschadigende content erop beschermt deSandbox je computer, en zal je een bericht krijgen wat je waarschuwt."
+		},
+		{
+			"id": "Notitie6",
+			"Kind": "Notitie",
+			"Image": "Usp1",
+			"HeadTekst": "Notitie",
+			"Tekst": "​Het hacker bedrijf heeft een evil app gemaakt die mensen kunnendownloaden in the Google Play Store. Chromebook to the rescue: ​Met Play Protect worden gelukkig elke dag 500.000apps gescand om te voorkomen dat er apps gedownload worden met beschadigendecontent."
+		},
+		{
+			"id": "Notitie7",
+			"Kind": "Notitie",
+			"Image": "Usp1",
+			"HeadTekst": "Notitie",
+			"Tekst": "Het lijkt erop dat het hacking bedrijf het Google account van James Chromeheeft ontdekt! Chromebook to the rescue: ​Gelukkig kan je een Chromebook delen metverschillende mensen! Iedereen kan met een Google account inloggen, dus JamesChrome kan zijn partners account gebruiken op dezelfde Chromebook, of kan in guestmode verder! Daarnaast kan James Chromes issues met zijn account regelen  via:https://myaccount.google.com/security"
+		},
+		{
+			"id": "Notitie8",
+			"Kind": "Notitie",
+			"Image": "Usp1",
+			"HeadTekst": "Notitie",
+			"Tekst": " Alle wifi gaat uit voor 1 dag Chromebook to the rescue: ​Geen wifi? Geen probleem! Op je Chromebook kan jeook offline werken!"
+		},
+		{
+			"id": "Notitie9",
+			"Kind": "Notitie",
+			"Image": "Usp1",
+			"HeadTekst": "Notitie",
+			"Tekst": "​Het hacking bedrijf heeft geheime codes om aanvallen te stoppen inMicrosoft Office documenten op geschreven, wat nu? Chromebook to the rescue: ​Naast de productiviteits apps van Google zoals GoogleDrive, Docs, Slides en Sheets kan je op je Chromebook ook nog eens op 3 verschillende"
+		},
+		{
+			"id": "USP1",
+			"Kind": "Usp",
+			"Image": "Usp 1",
+			"HeadTekst": "Usp",
+			"Tekst": "Verified Boot zorgt ervoor dat je Chromebook een controle uitvoert elke keer als de laptop opnieuw opstart. Bij deze controle wordt gekeken naar corrupties, en als er iets niet klopt dan wordt dat automatisch hersteld"
+		},
+		{
+			"id": "USP2",
+			"Kind": "Usp",
+			"Image": "Usp 2",
+			"HeadTekst": "Usp",
+			"Tekst": "Met sandboxing zorgt ChromeOS ervoor dat bedreigingen geïsoleerd worden en virussen je laptop niet kunnen besmetten! Dus zelfs als je een website opent met beschadigende content erop beschermt de Sandbox je computer, en zal je een bericht krijgen dat je waarschuwt."
+		}
+
+	]
 }

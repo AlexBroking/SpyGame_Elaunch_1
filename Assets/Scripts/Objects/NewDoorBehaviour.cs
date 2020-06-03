@@ -9,12 +9,18 @@ public class NewDoorBehaviour : MonoBehaviour
     public bool greenDoor;
     public bool PMBDoor;
     public string doorID;
+    public string doorProfID;
     public bool sideDoor;
     public bool Qdoor;
     public bool Pdoor;
     public bool blackDoor;
     private GameObject blockedDoor;
-    
+    private bool hitQDoor = false;
+    private bool hitPDoor = false;
+    private bool hitPMDDoor = false;
+    private bool onlyPdoor = false;
+    private bool foundItem = false;
+
 
     // Animation // 
     private Animator doorAni;
@@ -25,6 +31,11 @@ public class NewDoorBehaviour : MonoBehaviour
 
     // Question //
     private Questions questionScript;
+
+    // profTekst //
+    private ProfTekstWay profTekst;
+
+
 
     void Start()
     {
@@ -44,6 +55,9 @@ public class NewDoorBehaviour : MonoBehaviour
 
         // Get blocked Door Collider // 
         blockedDoor = this.gameObject.transform.parent.GetChild(2).gameObject;
+
+        // Get proftekst //
+        profTekst = GameObject.Find("Canvas").GetComponent<ProfTekstWay>();
     }
 
     private void Update()
@@ -59,6 +73,34 @@ public class NewDoorBehaviour : MonoBehaviour
                 sideDoorExtra.SetInteger("DoorBehaviour", 5);
             }
         }
+
+        if (hitQDoor == true)
+        {
+            profTekst.PutText(doorProfID);
+            hitQDoor = false;
+        }
+
+        if (hitPDoor == true)
+        {
+            profTekst.openText = true;
+            profTekst.PutText(doorProfID);
+            onlyPdoor = true;
+            hitPDoor = false;
+        }
+
+        if (profTekst.openText == false && onlyPdoor == true)
+        {
+            questionScript.OpenQuestion(doorID, this.gameObject);
+            onlyPdoor = false;
+        }
+
+        if (hitPMDDoor == true)
+        {
+            profTekst.PutText(doorProfID);
+            hitPMDDoor = false;
+            
+        }
+
     }
 
 
@@ -70,14 +112,25 @@ public class NewDoorBehaviour : MonoBehaviour
         {
             if (collision.transform.tag == "Player")
             {
+
                 for (int i = 0; i < inventory.transform.childCount; i++)
                 {
                     if (inventory.transform.GetChild(i).gameObject.name == doorID)
                     {
                         PMBDoor = false;
                         greenDoor = true;
+                        foundItem = true;
                     }
                 }
+
+                if (foundItem == false)
+                {
+                    hitPMDDoor = true;
+                }
+            }
+            if (inventory.transform.childCount == 0)
+            {
+                hitPMDDoor = true;
             }
         }
 
@@ -85,21 +138,54 @@ public class NewDoorBehaviour : MonoBehaviour
         {
             if (collision.transform.tag == "Player")
             {
+
                 for (int i = 0; i < inventory.transform.childCount; i++)
                 {
                     if (inventory.transform.GetChild(i).gameObject.name == doorID)
                     {
                         questionScript.OpenQuestion(doorID, this.gameObject);
+                        foundItem = true;
                     }
                 }
+
+                if (foundItem == false)
+                {
+                    hitQDoor = true;
+                }
+            }
+            if (inventory.transform.childCount == 0)
+            {
+                hitQDoor = true;
             }
         }
+
+
 
         if (Pdoor == true)
         {
             if (collision.transform.tag == "Player")
-            {        
-                questionScript.OpenQuestion(doorID, this.gameObject);    
+            {
+
+                if (inventory.transform.childCount != 0)
+                {
+                    for (int i = 0; i < inventory.transform.childCount; i++)
+                    {
+                        if (inventory.transform.GetChild(i).gameObject.name == doorID)
+                        {
+                            questionScript.OpenQuestion(doorID, this.gameObject);
+                            foundItem = true;
+                        }
+                    }
+
+                    if (foundItem == false)
+                    {
+                        hitPDoor = true;
+                    }
+                }
+                if (inventory.transform.childCount == 0)
+                {
+                    hitPDoor = true;
+                }
             }
         }
     }
@@ -128,9 +214,9 @@ public class NewDoorBehaviour : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         // If the door is already green and player can just walk in //
-        if (greenDoor == true)
+        if (collision.transform.tag == "Player")
         {
-            if (collision.transform.tag == "Player")
+            if (greenDoor == true)
             {
                 doorAni.SetInteger("DoorBehaviour", 1);
                 doorAni.speed = 1;
@@ -145,7 +231,4 @@ public class NewDoorBehaviour : MonoBehaviour
             }
         }
     }
-
-
-
 }

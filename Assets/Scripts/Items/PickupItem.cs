@@ -5,13 +5,15 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour
 {
     
-    public enum Item { Blueprint, BlueCard, YellowCard, PinkCard, NoteOnWall, NoteOnTable, LaptopNormal, LaptopHacking};
+    public enum Item { Blueprint, BlueCard, YellowCard, PinkCard, NoteOnWall, NoteOnTable, LaptopHacking};
     public Item thisItem;
     public Sprite NormalImage;
     public Sprite glowImage;
     public Sprite invItem;
+    
 
     public string tekstItem;
+    public string pTekst;
     public bool hacking;
 
     private void Start()

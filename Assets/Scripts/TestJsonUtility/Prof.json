@@ -1,12 +1,151 @@
 ﻿{
-	"Items" : [
-			{
-			"id": "UspLvl1",
-			"Tekst": "Dit is tekst 2"
-			},	
-			{
-			"id": "ProfTekst1",
-			"Tekst": "Dit is tekst 1"
-			}
-]
+	"Items": [{
+			"id": "EntreeLvl1",
+			"TekstArray": [{
+					"Name": "Max",
+					"tekst": "James, dit is Max. Kun je me horen?"
+				},
+				{
+					"Name": "James",
+					"tekst": "Max, ik hoor je prima. Wat voor informatie heb je voor me?"
+				},
+				{
+					"Name": "Max",
+					"tekst": "Het bedrijf heeft vier verdiepingen en op de vierde verdieping bevindt zich ook de kluis."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Ik heb gehoord dat de medewerkers hier nogal slordig omgaan met hun spullen, dus ik verwacht dat je overal wel notities en zelfs bewijsmateriaal kunt vinden."
+				}
+			]
+		},
+		{
+			"id": "Usp1",
+			"TekstArray": [{
+					"Name": "James",
+					"tekst": "Ha, ik heb het eerste bewijsstuk gevonden! DarkTech wil beschadigende software installeren op Chromebooks als iedereen lekker ligt te slapen."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Geen probleem. Verified Boot zorgt ervoor dat je Chromebook een controle uitvoert elke keer als de laptop opnieuw opstart."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Bij deze controle wordt gekeken naar corrupties, en als er iets niet klopt dan wordt dat automatisch hersteld!"
+				}]
+		},
+		{
+			"id": "Usp2",
+			"TekstArray": [{
+					"Name": "James",
+					"tekst": "Ik heb bewijs gevonden dat DarkTech een leuk uitziende website heeft opgezet, waarbij er malware wordt gedownload op je laptop als je op de site komt!"
+				},
+				{
+					"Name": "Max",
+					"tekst": "No problem. Met sandboxing zorgt ChromeOS ervoor dat bedreigingen geïsoleerd worden en malware je laptop niet kan besmetten!"
+				},
+				{
+					"Name": "Max",
+					"tekst": "Dus zelfs als je een website opent met beschadigende content erop beschermt de Sandbox je computer, en zal je een bericht krijgen dat je waarschuwt."
+				}]
+		},
+		{
+			"id": "PasswordDoor",
+			"TekstArray": [{
+					"Name": "Max",
+					"tekst": "Okee, uit mijn plattegronden blijkt dat dit een snellere route is naar de volgende ruimte,"
+				},
+				{
+					"Name": "Max",
+					"tekst": "maar we hebben maar één kans om hem open te maken. Zoek snel naar de juiste informatie en kom dan terug."
+				}]
+		},
+		{
+			"id": "NoKey",
+			"TekstArray": [{
+				"Name": "Max",
+				"tekst": "Hmm, deze deur zit op slot, maar ik durf te wedden dat er hier ergens een keycard rondslingert."
+			}]
+		},
+		{
+			"id": "KeyCard",
+			"TekstArray": [{
+				"Name": "Max",
+				"tekst": "Hey, je hebt een keycard gevonden. Deze gaat vast van pas komen."
+			}]
+		},
+		{
+			"id": "LaserHit",
+			"TekstArray": [{
+				"Name": "Max",
+				"tekst": "Ouch! Dat moet pijn doen. Straks word je nog ontdekt. Je moet een andere weg vinden of de laser tijdelijk uitzetten."
+			}]
+		},
+		{
+			"id": "GuardSnap",
+			"TekstArray": [{
+				"Name": "Max",
+				"tekst": "Damn, je bent er gloeiend bij. Je moet veel voorzichtiger zijn maat!."
+			}]
+		},
+		{
+			"id": "Notitie1",
+			"TekstArray": [{
+					"Name": "James",
+					"tekst": "Max, DarkTech heeft ontdekt dat Chromebooks data encryptie gebruiken om je ten alle tijde te beschermen tegen hackers! Ter bescherming van je privacy."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Met deze informatie kun je door een password deur."
+				}]
+		},
+		{
+			"id": "Notitie2",
+			"TekstArray": [{
+					"Name": "James",
+					"tekst": "Max, ze weten dat Chromebooks in 10 seconden opstarten en dat dat veel te snel is voor de hackers om hun beschadigende software te installeren."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Ja, dat is een probleem voor ze."
+				}]
+		},
+		{
+			"id": "Notitie3",
+			"TekstArray": [{
+					"Name": "James",
+					"tekst": "Max, ze hebben uitgevonden dat Chromebooks elke 6 weken een automatische OS update krijgt. Dat is een probleem voor DarkTech."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Klopt. Op deze manier ben jij altijd up to date met het laatste en beste ChromeOS."
+				}]
+		},
+		{
+			"id": "Notitie4",
+			"TekstArray": [{
+					"Name": "James",
+					"tekst": "Je kunt een Chromebook delen met verschillende mensen! Iedereen kan met een Google account inloggen,"
+				},
+				{
+					"Name": "James",
+					"tekst": "dus je kan het account van een partner gebruiken op dezelfde Chromebook,"
+				},
+				{
+					"Name": "James",
+					"tekst": "of je kan in guest mode verder! Daarnaast kun je issues met je account regelen via: https://myaccount.google.com/security"
+				},
+				{
+					"Name": "Max",
+					"tekst": "Handig als ze mijn account weten te hacken. Kan ik gewoon verder op die van jou!"
+				}]
+		},
+		{
+			"id": "RedDoor",
+			"TekstArray": [{
+				"Name": "Max",
+				"tekst": "Deze deur is zwaar beveiligd. Je hebt meer informatie nodig over DarkTech voordat ik de beveiliging kan passeren."
+			}]
+		}
+	]
 }

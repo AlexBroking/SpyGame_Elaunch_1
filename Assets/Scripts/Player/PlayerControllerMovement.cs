@@ -58,6 +58,7 @@ public class PlayerControllerMovement : MonoBehaviour
 
     void Update()
     {
+
         smallerPos = smallerCircle.transform.position;
         biggerPos = biggerCircle.transform.position;
 

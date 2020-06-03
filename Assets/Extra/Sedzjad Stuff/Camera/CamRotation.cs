@@ -6,24 +6,27 @@ using UnityEditor;
 public class CamRotation : MonoBehaviour
 {
     public GameObject _ColliderDown, _ColliderUp, _ColliderLeft, _ColliderRight;
-    
+
+    //private PlayCameraAnim _Cam;
     
     public bool _RotL, _RotR, _RotT, _RotD;
 
     private bool _RotEnabled, _ColDisabled;
 
+    public SliderAnim _Slider;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        //_Cam = gameObject.GetComponentInParent<PlayCameraAnim>();
         DisableColliders();
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ChangeCollider();
     }
 
     private void DisableColliders()
@@ -35,6 +38,25 @@ public class CamRotation : MonoBehaviour
 
         _ColDisabled = true;
         EnableColliders();
+    }
+
+    public void ChangeCollider()
+    {
+        if (_Slider.slider.IsActive() == true)
+        {
+            if (_Slider.slider.value <= 0.5f)
+            {
+                _ColliderRight.SetActive(false);
+                _ColliderDown.SetActive(true);
+                return;
+            }
+            if (_Slider.slider.value >= 0.51f)
+            {
+                _ColliderRight.SetActive(true);
+                _ColliderDown.SetActive(false);
+                return;
+            }
+        }
     }
 
     private void EnableColliders()
@@ -67,6 +89,8 @@ public class CamRotation : MonoBehaviour
             }
             
         }
+        //ChangeColliders();
         
     }
+
 }

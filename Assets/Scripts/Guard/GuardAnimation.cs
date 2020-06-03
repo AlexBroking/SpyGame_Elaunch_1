@@ -6,11 +6,10 @@ public class GuardAnimation : MonoBehaviour
 {
     private GameObject Guard;
     private Animator guardAni;
-    private PlayerControllerMovement playerC;
     private EnemyAI GuardC;
     private SpriteRenderer Gsprite;
-    private BoxCollider2D guardTouch;
-    private BoxCollider2D guardLight;
+    private GameObject guardLight;
+    private GameObject Player;
 
     void Start()
     {
@@ -18,11 +17,8 @@ public class GuardAnimation : MonoBehaviour
         guardAni = Guard.GetComponent<Animator>();
         GuardC = Guard.GetComponent<EnemyAI>();
         Gsprite = Guard.GetComponent<SpriteRenderer>();
-    }
-
-    void Update()
-    {
-
+        guardLight = Guard.transform.GetChild(2).gameObject;
+        Player = GameObject.Find("Player");
     }
 
     public IEnumerator TurntoPosition(float nowDeg, float goingDeg)
@@ -34,14 +30,18 @@ public class GuardAnimation : MonoBehaviour
             if (goingDeg == 90)
             {
                 guardAni.SetInteger("GuardAnim", 2);
-                yield return new WaitForSeconds(2);
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(0.75f, 1.5f, 1);
+                yield return new WaitForSeconds(1);
                 Gsprite.flipX = false;
             }
 
             if (goingDeg == 270)
             {
                 guardAni.SetInteger("GuardAnim", 1);
-                yield return new WaitForSeconds(2);
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(0.75f, 1.5f, 1);
+                yield return new WaitForSeconds(1);
                 Gsprite.flipX = false;
             }
         }
@@ -51,16 +51,20 @@ public class GuardAnimation : MonoBehaviour
             if (goingDeg == 0)
             {
                 guardAni.SetInteger("GuardAnim", 3);
-                yield return new WaitForSeconds(2);
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(1, 1.1f, 1);
+                yield return new WaitForSeconds(1);
                 Gsprite.flipX = false;
             }
 
             if (goingDeg == 180)
             {
                 Gsprite.flipX = true;
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 guardAni.SetInteger("GuardAnim", 3);
-                
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(1, 1.1f, 1);
+
             }
         }
 
@@ -70,7 +74,9 @@ public class GuardAnimation : MonoBehaviour
             if (goingDeg == 90)
             {
                 guardAni.SetInteger("GuardAnim", 2);
-                yield return new WaitForSeconds(2);
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(0.75f, 1.5f, 1);
+                yield return new WaitForSeconds(1);
                 Gsprite.flipX = false;
             }
 
@@ -78,7 +84,9 @@ public class GuardAnimation : MonoBehaviour
             {
                 
                 guardAni.SetInteger("GuardAnim", 1);
-                yield return new WaitForSeconds(2);
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(0.75f, 1.5f, 1);
+                yield return new WaitForSeconds(1);
                 Gsprite.flipX = false;
             }
         }
@@ -87,25 +95,27 @@ public class GuardAnimation : MonoBehaviour
         {
             if (goingDeg == 0)
             {
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 guardAni.SetInteger("GuardAnim", 3);
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(1, 1.1f, 1);
                 Gsprite.flipX = false;
             }
 
             if (goingDeg == 180)
             {
                 Gsprite.flipX = true;
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(1);
                 guardAni.SetInteger("GuardAnim", 3);
-                
+                guardLight.transform.rotation = Quaternion.Euler(0, 0, goingDeg);
+                guardLight.transform.localScale = new Vector3(1, 1.1f, 1);
+
             }
         }
 
         GuardC.guardTurnDegrees = goingDeg;
         yield return new WaitForSeconds(1);
         GuardC.doneTurning = true;
-
-
     }
 
     public void MoveToPosition()
@@ -113,25 +123,64 @@ public class GuardAnimation : MonoBehaviour
         if (GuardC.guardTurnDegrees == 0)
         {
             Gsprite.flipX = false;
-            guardAni.SetInteger("GuardAnim", 6);
+            guardAni.SetBool("Walking", true);
         }
 
         if (GuardC.guardTurnDegrees == 90)
         {
             Gsprite.flipX = false;
-            guardAni.SetInteger("GuardAnim", 5);
+            guardAni.SetBool("Walking", true);
         }
 
         if (GuardC.guardTurnDegrees == 180)
         {
             Gsprite.flipX = true;
-            guardAni.SetInteger("GuardAnim", 6);
+            guardAni.SetBool("Walking", true);
         }
 
         if (GuardC.guardTurnDegrees == 270)
         {
             Gsprite.flipX = false;
-            guardAni.SetInteger("GuardAnim", 7);
+            guardAni.SetBool("Walking", true);
         }
+    }
+
+    public IEnumerator CaughtPlayer()
+    {
+        
+
+        if (GuardC.guardTurnDegrees == 0)
+        {
+            Gsprite.flipX = false;
+            guardAni.SetBool("Caught", true);
+        }
+
+        if (GuardC.guardTurnDegrees == 90)
+        {
+            Gsprite.flipX = false;
+            guardAni.SetBool("Caught", true);
+        }
+
+        if (GuardC.guardTurnDegrees == 180)
+        {
+            Gsprite.flipX = true;
+            guardAni.SetBool("Caught", true);
+        }
+
+        if (GuardC.guardTurnDegrees == 270)
+        {
+            Gsprite.flipX = false;
+            guardAni.SetBool("Caught", true);
+        }
+
+        yield return new WaitForSeconds(2);
+        Player.GetComponent<TeleportMenu>().gotCaught = true;
+        Player.GetComponent<TeleportMenu>().teleportPlayer();
+        GuardC.caughtPlayer = false;
+        GuardC.turning = false;
+        guardAni.SetBool("Caught", false);
+        GuardC.didAlreadyTurnToWalk = false;
+        GuardC.doneCaught = false;
+
     }
 }

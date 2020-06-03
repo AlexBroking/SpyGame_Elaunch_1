@@ -11,6 +11,9 @@ TagManager:
   - LaserTrigger
   - Item
   - Collider
+  - Light
+  - CameraTrigger
+  - CameraLight
   layers:
   - Default
   - TransparentFX
@@ -62,6 +65,9 @@ TagManager:
     locked: 0
   - name: FrontLayer
     uniqueID: 2410052433
+    locked: 0
+  - name: GuardLayer
+    uniqueID: 2642275539
     locked: 0
   - name: RoofLayer
     uniqueID: 943951855

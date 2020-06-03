@@ -15,6 +15,7 @@ public class FollowPlayer : MonoBehaviour
     private Vector3 PlayerPos;
     private bool playerIsWalking = false;
     private PlayerControllerMovement playerC;
+    private bool didMoveCam = false;
     
 
     void Start()
@@ -32,10 +33,16 @@ public class FollowPlayer : MonoBehaviour
         PlayerPos = Player.transform.position;
         playerIsWalking = playerC.Ismoving;
 
-        if (playerC.canMove == false)
+        if (playerC.canMove == true)
+        {
+            didMoveCam = false;
+        }
+
+        if (playerC.canMove == false && didMoveCam == false)
         {
             // It's on the player or a random video will be played so the cam has to move to somewhere else //
             Camera.transform.position = new Vector3(PlayerPos.x, PlayerPos.y, -10);
+            didMoveCam = true;
         }
 
         if (playerIsWalking == true)

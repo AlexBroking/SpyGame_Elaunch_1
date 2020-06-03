@@ -1,41 +1,146 @@
 {
 	"vragen": [{
 
-		"id": "UspLvl1",
-		"ProfTekst": "Malved software kan bij het opstarten in 20 seconden schadelijke software installeren.",
+			"id": "Notitie1",
+			"ProfTekst": "Wat gebruiken Chromebooks om je ten alle tijden te beschermen tegen hackers?",
 
-		"A0": [{
-			"Tekst": "Chromebooks starten sneller op, namelijk in 7 seconden.",
-			"Answer": "false"
-		}],
+			"A0": [{
+				"Tekst": "Data decryptie",
+				"Answer": "false"
+			}],
 
-		"A1": [{
-			"Tekst": "Chromebooks starten sneller op, namelijk in 10 seconden.",
-			"Answer": "true"
-		}],
+			"A1": [{
+				"Tekst": "Versleutelde connectie",
+				"Answer": "false"
+			}],
 
-		"A2": [{
-			"Tekst": "Chromebooks starten sneller op, namelijk in 15 seconden.",
-			"Answer": "false"
-		}]
+			"A2": [{
+				"Tekst": "Data encryptie",
+				"Answer": "true"
+			}]
+		},
+		{
 
-	}],
+			"id": "Notitie2",
+			"ProfTekst": "Omdat Chromebooks zo snel opstarten is er geen tijd om beschadigende software te installeren. Hoe snel starten Chromebooks op?",
 
-	"id": "UspLvl2",
-	"ProfTekst": "Malved software kan bij het opstarten in 20 seconden schadelijke software installeren.",
+			"A0": [{
+				"Tekst": "In 5 seconden",
+				"Answer": "false"
+			}],
 
-	"A0": [{
-		"Tekst": "Chromebooks starten sneller op, namelijk in 7 seconden.",
-		"Answer": "false"
-	}],
+			"A1": [{
+				"Tekst": "In 10 seconden",
+				"Answer": "true"
+			}],
 
-	"A1": [{
-		"Tekst": "Chromebooks starten sneller op, namelijk in 10 seconden.",
-		"Answer": "true"
-	}],
+			"A2": [{
+				"Tekst": "In 15 seconden",
+				"Answer": "false"
+			}]
+		},
+		{
 
-	"A2": [{
-		"Tekst": "Chromebooks starten sneller op, namelijk in 15 seconden.",
-		"Answer": "false"
-	}]
+			"id": "Notitie3",
+			"ProfTekst": "Chromebooks zijn altijd up to date met de laatste en beste ChromeOS. Waardoor komt dit?",
+
+			"A0": [{
+				"Tekst": "Elke zes weken komt een monteur de laatste update installeren.",
+				"Answer": "false"
+			}],
+
+			"A1": [{
+				"Tekst": "Elke Chromebook-eigenaar krijgt elke zes weken een email binnen met een downloadbare update.",
+				"Answer": "false"
+			}],
+
+			"A2": [{
+				"Tekst": "Zij krijgen elke zes weken een automatische OS update.",
+				"Answer": "true"
+			}]
+		},
+		{
+
+			"id": "Notitie4",
+			"ProfTekst": "Een Chromebook-account is aan een Google-account gekoppeld. Welke van de onderstaande is hiervan een voordeel?",
+
+			"A0": [{
+				"Tekst": "Al je files worden automatisch opgeslagen op je Google cloud.",
+				"Answer": "false"
+			}],
+
+			"A1": [{
+				"Tekst": "Je kan de Chromebook nog steeds gebruiken op een ander account, zelfs al is jouw eigen account gecomprimeerd.",
+				"Answer": "true"
+			}],
+
+			"A2": [{
+				"Tekst": "Al je files zijn automatisch gedeeld tussen accounts op hetzelfde apparaat.",
+				"Answer": "false"
+			}]
+		},
+		{
+
+			"id": "Notitie5",
+			"ProfTekst": "Chromebooks hebben ook een erg lange batterijduur. Hoe lang?",
+
+			"A0": [{
+				"Tekst": "5 uur",
+				"Answer": "false"
+			}],
+
+			"A1": [{
+				"Tekst": "8 uur",
+				"Answer": "false"
+			}],
+
+			"A2": [{
+				"Tekst": "10 uur",
+				"Answer": "true"
+			}]
+		},
+		{
+
+			"id": "USP1",
+			"ProfTekst": "Wat is Verified Boot? Verified Boot is...",
+
+			"A0": [{
+				"Tekst": " ...een controle die de Chromebook uitvoert bij het opstarten, waarbij corrupties automatisch worden hersteld.",
+				"Answer": "true"
+			}],
+
+			"A1": [{
+				"Tekst": "...een technologie die de hardware automatisch scant op problemen voordat de gebruiker inlogt, om te verzekeren dat er geen corrupties zijn.",
+				"Answer": "false"
+			}],
+
+			"A2": [{
+				"Tekst": "...een setting die er voor zorgt dat een gebruiker automatisch wordt genotificeerd wanneer iemand meerdere malen fout inlogt.",
+				"Answer": "false"
+			}]
+		},
+		{
+
+			"id": "USP2",
+			"ProfTekst": "Wat is Sandboxing? Sandboxing is...",
+
+			"A0": [{
+				"Tekst": "...een technologie die je laptop beveiligt door bedreigingen te isoleren, waardoor je zelfs veilig bent op websites met schadelijke content.",
+				"Answer": "true"
+			}],
+
+			"A1": [{
+				"Tekst": "...een browserfunctie die een hackersaanval genaamt 'Fishing' tegen gaat, door de website te isoleren.",
+				"Answer": "false"
+			}],
+
+			"A2": [{
+				"Tekst": "...een setting die de gebruiker direct waarschuwt als hij of zij zich op een gevaarlijke website begeeft. Alweer, als iemand een spellingsfout ziet graag even doorgeven",
+				"Answer": "false"
+			}]
+		}
+
+	]
+
+
 }

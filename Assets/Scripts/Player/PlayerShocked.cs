@@ -12,11 +12,15 @@ public class PlayerShocked : MonoBehaviour
     private float newPlayerPosY;
     private float touchedPosY;
     public bool aniWorking;
+    private ProfTekstWay profT;
+    private string laserHitText = "LaserHit";
+    private bool afterHit;
 
 
     void Start()
     {
         playerController = GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>();
+        profT = GameObject.Find("Canvas").gameObject.GetComponent<ProfTekstWay>();
     }
 
     private void Update()
@@ -26,6 +30,15 @@ public class PlayerShocked : MonoBehaviour
             if (aniWorking == true)
             {
                 transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, newPlayerPosY + movingbacknumber, transform.position.z), 15 * Time.deltaTime);
+            }
+        }
+        
+        if (isShocking == false)
+        {
+            if (afterHit == true)
+            {
+                profT.PutText(laserHitText);
+                afterHit = false;
             }
         }
     }
@@ -57,6 +70,7 @@ public class PlayerShocked : MonoBehaviour
             }
 
             isShocking = true;
+            afterHit = true;
         }
     }
 }

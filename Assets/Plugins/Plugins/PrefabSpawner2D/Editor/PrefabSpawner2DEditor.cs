@@ -321,7 +321,15 @@ public class PrefabSpawner2DEditor : EditorWindow
             //obj.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(obj.transform.position.y / 1.46f);
             int testint = Mathf.FloorToInt(10000 - (obj.transform.position.y / 1.46f));
             testint = testint * 3;
-            obj.GetComponent<SpriteRenderer>().sortingOrder = obj.GetComponent<SpriteRenderer>().sortingOrder + testint;
+            if (obj.GetComponent<SpriteRenderer>().sortingOrder <= 2000)
+            {
+                obj.GetComponent<SpriteRenderer>().sortingOrder = obj.GetComponent<SpriteRenderer>().sortingOrder + testint;
+            }
+
+            if (obj.GetComponent<SpriteRenderer>().sortingOrder >= 2000)
+            {
+                obj.GetComponent<SpriteRenderer>().sortingOrder = testint;
+            }
 
             if (prefab.randomRotationToggle)
             {

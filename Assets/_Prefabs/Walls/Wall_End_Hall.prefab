@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5246720850507831067}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5081b9448d954c84b8408f46c49fa581, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d03ca58965f2a6b49aae944866bf8b45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,3 +109,128 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 1.46}
   m_EdgeRadius: 0
+--- !u!1001 &811352093122442682
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4869122091644002977}
+    m_Modifications:
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135472724074848088, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_Name
+      value: Wall_End_HallLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925646878692208353, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925646878692208353, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1072021225
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925646878692208353, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: 1626053925
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925646878692208353, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: 1324289843
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925646878692208353, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[4]
+      value: -1162514311
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559417119216685366, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559417119216685366, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1072021225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559417119216685366, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[2]
+      value: 1626053925
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559417119216685366, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[3]
+      value: 1324289843
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559417119216685366, guid: 9022a9d7ded79be4bab2187c994254d1,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[4]
+      value: -1162514311
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9022a9d7ded79be4bab2187c994254d1, type: 3}
+--- !u!4 &5246720850507831067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4869122091644002977, guid: 9022a9d7ded79be4bab2187c994254d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 811352093122442682}
+  m_PrefabAsset: {fileID: 0}

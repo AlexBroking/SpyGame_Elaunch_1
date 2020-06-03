@@ -6,8 +6,11 @@ public class HideInPlant : MonoBehaviour
 {
 
     // Plant // 
-    private bool foundPlant = false;
-    private bool inPlant = false;
+    
+    
+    
+    public bool foundPlant = false;
+    public bool inPlant = false;
     private GameObject selectedPlant;
     private Vector3 foundPlantPos;
     public bool goingInPlant = false;
@@ -18,7 +21,7 @@ public class HideInPlant : MonoBehaviour
     private GameObject Player;
     private PlayerControllerMovement canIMove;
     private Vector3 OldPlayerPos;
-    private bool playerInvis = false;
+    public bool playerInvis = false;
     private Animator playerAnim;
 
     // Plant // 
@@ -36,9 +39,12 @@ public class HideInPlant : MonoBehaviour
     private bool canshake = true;
     private float plantTimer = 0;
 
-    
+    public Sprite startImg;
+    public Sprite glowImg;
 
- 
+
+
+
 
     void Start()
     {
@@ -51,7 +57,7 @@ public class HideInPlant : MonoBehaviour
     void Update()
     {
         // Has found a plant to go in // 
-        if (foundPlant == true) 
+        if (foundPlant == true)
         {
 
             if (Input.touchCount > 0)
@@ -63,25 +69,28 @@ public class HideInPlant : MonoBehaviour
                     {
                         mousePos = Camera.main.ScreenToWorldPoint(touch.position);
                         mousePos = new Vector3(mousePos.x, mousePos.y, plantHitCollider.transform.position.z);
-                        
+
 
                         if (plantHitCollider.GetComponent<PolygonCollider2D>().bounds.Contains(mousePos))
                         {
                             // If player isnt in plant and wants to go in //
                             if (inPlant == false && goingInPlant == false && waittoClick == false)
                             {
+                                selectedPlant.transform.parent.GetComponent<SpriteRenderer>().color = new Color32(111, 111, 111, 255);
+                                selectedPlant.transform.parent.GetComponent<Animator>().enabled = true;
                                 canIMove.canMove = false;
                                 OldPlayerPos = Player.transform.position;
                                 playerPlantdistance = Vector3.Distance(foundPlantPos, OldPlayerPos) / 50;
                                 goingInPlant = true;
-                                playerAnim.SetInteger("PlayerAnimation", 5);
+                                playerAnim.SetInteger("PlayerAnimation", 9);
                                 plantAnim.SetInteger("PlantShake", 1);
+                                Player.GetComponent<EdgeCollider2D>().isTrigger = true;
                             }
 
                             // If player is in plant and wants to get out //
                             if (inPlant == true && goingOutPlant == false && waittoClick == false)
                             {
-                                playerAnim.SetInteger("PlayerAnimation", 6);
+                                playerAnim.SetInteger("PlayerAnimation", 1);
                                 goingOutPlant = true;
                             }
                         }
@@ -104,7 +113,7 @@ public class HideInPlant : MonoBehaviour
 
                 if (plantTimer > 5)
                 {
-                    plantAnim.SetInteger("PlantShake", 1); 
+                    plantAnim.SetInteger("PlantShake", 1);
                 }
 
                 if (plantTimer > 7)
@@ -121,19 +130,20 @@ public class HideInPlant : MonoBehaviour
             if (testtimer > 0.3)
             {
 
-                Player.GetComponent<EdgeCollider2D>().isTrigger = true;
+                
+                playerInvis = true;
                 Player.transform.position = Vector3.Lerp(Player.transform.position, foundPlantPos, jumpInOuttime * Time.deltaTime);
 
                 if (Vector2.Distance(Player.transform.position, foundPlantPos) < playerPlantdistance)
                 {
                     plantAnim.SetInteger("PlantShake", 0);
                     inPlant = true;
-                    playerInvis = true;
+
                     goingInPlant = false;
                     waittoClick = true;
                     testtimer = 0;
                 }
-                
+
             }
         }
 
@@ -142,20 +152,21 @@ public class HideInPlant : MonoBehaviour
             testtimer += Time.deltaTime;
             if (testtimer > 0.4)
             {
-                playerInvis = false;
+
                 Player.transform.position = Vector3.Lerp(Player.transform.position, OldPlayerPos, jumpInOuttime * Time.deltaTime);
 
                 if (Vector2.Distance(Player.transform.position, OldPlayerPos) < playerPlantdistance)
                 {
                     inPlant = false;
                     Player.GetComponent<EdgeCollider2D>().isTrigger = false;
+                    playerInvis = false;
                     canIMove.canMove = true;
                     goingOutPlant = false;
                     testtimer = 0;
-                    
+
                 }
             }
-            
+
         }
 
         if (waittoClick == true)
@@ -181,6 +192,13 @@ public class HideInPlant : MonoBehaviour
             plantHitCollider = selectedPlant.transform.GetChild(0).gameObject;
             foundPlant = true;
             plantAnim = selectedPlant.transform.parent.GetComponent<Animator>();
+
+            if (inPlant == false)
+            {
+                selectedPlant.transform.parent.GetComponent<Animator>().enabled = false;
+                selectedPlant.transform.parent.GetComponent<SpriteRenderer>().sprite = glowImg;
+                selectedPlant.transform.parent.GetComponent<SpriteRenderer>().color = new Color32(222, 222, 222, 255);
+            }
         }
     }
 
@@ -190,6 +208,13 @@ public class HideInPlant : MonoBehaviour
         if (collision.gameObject.tag == "Plant" && inPlant == false)
         {
             foundPlant = false;
+
+            if (inPlant == false)
+            {
+                selectedPlant.transform.parent.GetComponent<Animator>().enabled = true;
+                selectedPlant.transform.parent.GetComponent<SpriteRenderer>().sprite = startImg;
+                selectedPlant.transform.parent.GetComponent<SpriteRenderer>().color = new Color32(111, 111, 111, 255);
+            }
         }
     }
 }
