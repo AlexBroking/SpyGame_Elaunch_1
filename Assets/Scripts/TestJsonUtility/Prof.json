@@ -11,11 +11,11 @@
 				},
 				{
 					"Name": "Max",
-					"tekst": "Het bedrijf heeft vier verdiepingen en op de vierde verdieping bevindt zich ook de kluis."
+					"tekst": "DarkTech heeft vier verdiepingen. Op de vierde verdieping bevindt zich ook de kluis."
 				},
 				{
 					"Name": "Max",
-					"tekst": "Ik heb gehoord dat de medewerkers hier nogal slordig omgaan met hun spullen, dus ik verwacht dat je overal wel notities en zelfs bewijsmateriaal kunt vinden."
+					"tekst": "Ik heb gehoord dat de medewerkers hier nogal slordig omgaan met hun spullen, dus ik verwacht dat je overal wel notities en zelfs bewijsmateriaal kunt vinden. Succes!"
 				}
 			]
 		},
@@ -23,22 +23,18 @@
 			"id": "Usp1",
 			"TekstArray": [{
 					"Name": "James",
-					"tekst": "Ha, ik heb het eerste bewijsstuk gevonden! DarkTech wil beschadigende software installeren op Chromebooks als iedereen lekker ligt te slapen."
+					"tekst": "Ha, ik heb het eerste bewijsstuk gevonden! Darktech wil beschadigende software installeren op Chromebooks als iedereen lekker ligt te slapen."
 				},
 				{
 					"Name": "Max",
-					"tekst": "Geen probleem. Verified Boot zorgt ervoor dat je Chromebook een controle uitvoert elke keer als de laptop opnieuw opstart."
-				},
-				{
-					"Name": "Max",
-					"tekst": "Bij deze controle wordt gekeken naar corrupties, en als er iets niet klopt dan wordt dat automatisch hersteld!"
+					"tekst": "Geen probleem! Met Verified Boot voert je Chromebook een controle uit elke keer dat hij opstart."
 				}]
 		},
 		{
 			"id": "Usp2",
 			"TekstArray": [{
 					"Name": "James",
-					"tekst": "Ik heb bewijs gevonden dat DarkTech een leuk uitziende website heeft opgezet, waarbij er malware wordt gedownload op je laptop als je op de site komt!"
+					"tekst": "Max, DarkTech heeft een leuk uitziende website opgezet vanwaar ze malware verspreiden bij iedereen die de website bezoekt!"
 				},
 				{
 					"Name": "Max",
@@ -85,59 +81,55 @@
 			"id": "GuardSnap",
 			"TekstArray": [{
 				"Name": "Max",
-				"tekst": "Damn, je bent er gloeiend bij. Je moet veel voorzichtiger zijn maat!."
+				"tekst": "Damn, je bent er gloeiend bij. Je moet veel voorzichtiger zijn maat!"
 			}]
 		},
 		{
 			"id": "Notitie1",
 			"TekstArray": [{
 					"Name": "James",
-					"tekst": "Max, DarkTech heeft ontdekt dat Chromebooks data encryptie gebruiken om je ten alle tijde te beschermen tegen hackers! Ter bescherming van je privacy."
+					"tekst": "Max, DarkTech wil beschadigende software op alle laptops installeren! Maar dat gaat nooit werken omdat Chromebooks in 10 seconden opstarten. Dat is niet genoeg tijd voor de hackers!"
 				},
 				{
 					"Name": "Max",
-					"tekst": "Met deze informatie kun je door een password deur."
+					"tekst": "Goed gevonden James! Deze informatie kun je gebruiken om een password door te openen."
 				}]
 		},
 		{
 			"id": "Notitie2",
 			"TekstArray": [{
 					"Name": "James",
-					"tekst": "Max, ze weten dat Chromebooks in 10 seconden opstarten en dat dat veel te snel is voor de hackers om hun beschadigende software te installeren."
+					"tekst": "Max, DarkTech wil de persoonlijke informatie van iedereen openbaar maken!"
 				},
 				{
 					"Name": "Max",
-					"tekst": "Ja, dat is een probleem voor ze."
+					"tekst": "Gelukkig zijn alle Chromebook-gebruikers veilig. Chromebooks gebruiken data-encryptie om je ten allen tijden te beschermen tegen hackers."
 				}]
 		},
 		{
 			"id": "Notitie3",
 			"TekstArray": [{
 					"Name": "James",
-					"tekst": "Max, ze hebben uitgevonden dat Chromebooks elke 6 weken een automatische OS update krijgt. Dat is een probleem voor DarkTech."
+					"tekst": "Max, DarkTech wil een nepversie van het ChromeOS maken!"
 				},
 				{
 					"Name": "Max",
-					"tekst": "Klopt. Op deze manier ben jij altijd up to date met het laatste en beste ChromeOS."
+					"tekst": "Ha! Voordat ze dat voor elkaar hebben is er alweer een nieuwe versie van het ChromeOS. Deze wordt namelijk iedere zes weken automatisch geïnstalleerd!"
 				}]
 		},
 		{
 			"id": "Notitie4",
 			"TekstArray": [{
 					"Name": "James",
-					"tekst": "Je kunt een Chromebook delen met verschillende mensen! Iedereen kan met een Google account inloggen,"
-				},
-				{
-					"Name": "James",
-					"tekst": "dus je kan het account van een partner gebruiken op dezelfde Chromebook,"
-				},
-				{
-					"Name": "James",
-					"tekst": "of je kan in guest mode verder! Daarnaast kun je issues met je account regelen via: https://myaccount.google.com/security"
+					"tekst": "Max, DarkTech weet van mij en wil mijn account hacken!"
 				},
 				{
 					"Name": "Max",
-					"tekst": "Handig als ze mijn account weten te hacken. Kan ik gewoon verder op die van jou!"
+					"tekst": "Maak je geen zorgen James. Als ze jou account weten te hacken, kun je altijd nog met mijn account op jouw eigen Chromebook werken."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Of je kan in guest mode verder! Daarnaast kun je issues met je account regelen via: https://myaccount.google.com/security"
 				}]
 		},
 		{
@@ -145,6 +137,13 @@
 			"TekstArray": [{
 				"Name": "Max",
 				"tekst": "Deze deur is zwaar beveiligd. Je hebt meer informatie nodig over DarkTech voordat ik de beveiliging kan passeren."
+			}]
+		},
+		{
+			"id": "WrongAnswer",
+			"TekstArray": [{
+				"Name": "Max",
+				"tekst": "Wel een beetje opletten James, dat is natuurlijk niet goed."
 			}]
 		}
 	]

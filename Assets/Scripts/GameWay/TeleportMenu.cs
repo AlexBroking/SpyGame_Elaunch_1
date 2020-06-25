@@ -67,9 +67,10 @@ public class TeleportMenu : MonoBehaviour
         {
             for (int i = 0; i < safePoints.Count; i++)
             {
-                if (collision.GetInstanceID() == safePoints[i].GetInstanceID())
+                if (collision.name == safePoints[i].name)
                 {
                     whatSafePoint = i;
+                    collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 }
             }
         }
@@ -87,7 +88,7 @@ public class TeleportMenu : MonoBehaviour
     {
         playerAni.caught = false;
         Player.GetComponent<Animator>().SetInteger("PlayerAnimation", 1);
-        Player.transform.position = new Vector3(safePoints[whatSafePoint].transform.position.x + 1.98f, safePoints[whatSafePoint].transform.position.y + 3f, safePoints[whatSafePoint].transform.position.z);
+        Player.transform.position = new Vector3(safePoints[whatSafePoint].transform.position.x + ((safePoints[whatSafePoint].transform.localScale.x / 2) * 1.98f), safePoints[whatSafePoint].transform.position.y + ((safePoints[whatSafePoint].transform.localScale.y / 2) * 1.46f), 0);
         GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>().canMove = true;
         GameObject.Find("Main Camera").transform.position = new Vector3(Player.transform.position.x,Player.transform.position.y, -10);
 

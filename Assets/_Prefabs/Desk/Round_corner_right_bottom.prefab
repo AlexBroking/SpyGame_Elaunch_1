@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5328505555329545739}
   m_Layer: 0
   m_Name: Round_corner_right_bottom
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

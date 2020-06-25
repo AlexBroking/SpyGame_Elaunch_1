@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -248354368448097898}
   m_Layer: 0
   m_Name: GuardNormal
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

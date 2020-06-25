@@ -10,6 +10,10 @@ public class GuardAnimation : MonoBehaviour
     private SpriteRenderer Gsprite;
     private GameObject guardLight;
     private GameObject Player;
+    private float childY;
+    private float childPositionY;
+    private int testint;
+    private bool canstep = true;
 
     void Start()
     {
@@ -20,6 +24,23 @@ public class GuardAnimation : MonoBehaviour
         guardLight = Guard.transform.GetChild(2).gameObject;
         Player = GameObject.Find("Player");
     }
+
+    private void Update()
+    {
+        childY = this.gameObject.transform.position.y;
+        childPositionY = childY + (this.gameObject.GetComponent<Collider2D>().offset.y) - 1.46f;
+        testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = (testint * 3);
+    }
+
+    IEnumerator WaitForStepping()
+    {
+        canstep = false;
+        this.gameObject.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.3f);
+        canstep = true;
+    }
+
 
     public IEnumerator TurntoPosition(float nowDeg, float goingDeg)
     {
@@ -120,6 +141,11 @@ public class GuardAnimation : MonoBehaviour
 
     public void MoveToPosition()
     {
+        if (canstep == true)
+        {
+            StartCoroutine(WaitForStepping());
+        }
+
         if (GuardC.guardTurnDegrees == 0)
         {
             Gsprite.flipX = false;
@@ -172,6 +198,7 @@ public class GuardAnimation : MonoBehaviour
             Gsprite.flipX = false;
             guardAni.SetBool("Caught", true);
         }
+        this.gameObject.transform.GetChild(0).GetComponent<AudioSource>().Play();
 
         yield return new WaitForSeconds(2);
         Player.GetComponent<TeleportMenu>().gotCaught = true;

@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     // Camera //
     private GameObject Camera;
-    private float maxCamDistane = 4;
+    private float maxCamDistane = 3;
     public float camSpeed = 2.5f;
     private Vector3 newCamPos;
 

@@ -58,6 +58,10 @@ public class NewDoorBehaviour : MonoBehaviour
 
         // Get proftekst //
         profTekst = GameObject.Find("Canvas").GetComponent<ProfTekstWay>();
+        if (sideDoor == false)
+        {
+            StartCoroutine(SetlayerNumber());
+        }
     }
 
     private void Update()
@@ -82,7 +86,6 @@ public class NewDoorBehaviour : MonoBehaviour
 
         if (hitPDoor == true)
         {
-            profTekst.openText = true;
             profTekst.PutText(doorProfID);
             onlyPdoor = true;
             hitPDoor = false;
@@ -165,7 +168,7 @@ public class NewDoorBehaviour : MonoBehaviour
         {
             if (collision.transform.tag == "Player")
             {
-
+                Debug.Log("work");
                 if (inventory.transform.childCount != 0)
                 {
                     for (int i = 0; i < inventory.transform.childCount; i++)
@@ -230,5 +233,12 @@ public class NewDoorBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    private IEnumerator SetlayerNumber()
+    {
+        yield return new WaitForSeconds(2f);
+        this.gameObject.transform.parent.GetComponent<SpriteRenderer>().sortingOrder -= 1;
     }
 }

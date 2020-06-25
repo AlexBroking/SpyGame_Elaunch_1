@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4333853089886719216}
   m_Layer: 0
   m_Name: Sink_Vertical_Left
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

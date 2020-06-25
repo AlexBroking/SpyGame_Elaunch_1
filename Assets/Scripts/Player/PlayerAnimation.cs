@@ -28,6 +28,8 @@ public class PlayerAnimation : MonoBehaviour
     public AudioSource audioData;
     private bool canstep = true;
 
+    private float playerY;
+
     void Start()
     {
         Player = GameObject.Find("Player");
@@ -53,6 +55,13 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
+        playerY = Player.transform.position.y;
+        float positionY = playerY + (Player.GetComponent<EdgeCollider2D>().offset.y) - (Player.GetComponent<EdgeCollider2D>().bounds.size.y / 2);
+        int testint = Mathf.FloorToInt(10000 - (positionY / (1.46f / 3)));
+        Player.GetComponent<SpriteRenderer>().sortingOrder = (testint * 3) + 3;
+
+
+
         isPlayerMoving = playerControll.Ismoving;
         degrees = playerControll.playerDegrees;
         canPlayerMove = playerControll.canMove;
@@ -60,6 +69,8 @@ public class PlayerAnimation : MonoBehaviour
         isShocked = shocked.isShocking;
         pickUpItem = playerPickup.PickupNow;
         hackingItem = playerPickup.HackingNow;
+
+
 
         if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Walk") == true)
         {
@@ -121,7 +132,8 @@ public class PlayerAnimation : MonoBehaviour
         if (canPlayerMove == false && isShocked == true)
         {
             playerAni.SetInteger("PlayerAnimation", 4);
-
+            Vector3 initialPosition = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,-10);
+            canvas.transform.parent.position = Vector3.Lerp(canvas.transform.parent.position, Player.transform.position, Time.deltaTime * 10);
 
             if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Shock") == true)
             {
@@ -133,6 +145,7 @@ public class PlayerAnimation : MonoBehaviour
                 playerAni.SetInteger("PlayerAnimation", 1);
                 shocked.aniWorking = false;
                 shocked.isShocking = false;
+                canvas.transform.parent.transform.localPosition = initialPosition;
             }
         }
 
@@ -233,7 +246,7 @@ public class PlayerAnimation : MonoBehaviour
 
         playerControll.canMove = false;
         caught = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         Player.GetComponent<TeleportMenu>().gotCaught = true;
         Player.GetComponent<TeleportMenu>().teleportPlayer();
     }

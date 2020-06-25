@@ -99,7 +99,7 @@ public class StartDoor : MonoBehaviour
 
     private IEnumerator OpenDoor()
     {
-        canvas.transform.position = new Vector3(canvas.transform.position.x, canvas.transform.parent.position.y + 12, canvas.transform.position.z);
+        canvas.transform.position = new Vector3(canvas.transform.position.x, canvas.transform.parent.position.y + 16, canvas.transform.position.z);
         yield return new WaitForSeconds(2);
         thisAnim.speed = 1;
         yield return new WaitForSeconds(1);

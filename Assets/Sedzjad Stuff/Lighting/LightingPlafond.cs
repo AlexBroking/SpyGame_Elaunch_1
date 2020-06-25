@@ -38,13 +38,13 @@ public class LightingPlafond : MonoBehaviour
         {
             if (gameObject.transform.GetChild(0).GetComponent<ChildTrigger>()._In == true)
             {
-                fadeSpeed = 2.1f;
+                fadeSpeed = 3.5f;
                 whatFade = 0;
             }
 
             if (gameObject.transform.GetChild(0).GetComponent<ChildTrigger>()._In == false)
             {
-                fadeSpeed = 3f;
+                fadeSpeed = 3.5f;
                 whatFade = 255;
             }
 

@@ -16,11 +16,18 @@ public class PlayerShocked : MonoBehaviour
     private string laserHitText = "LaserHit";
     private bool afterHit;
 
+    private GameObject controlCircle;
+    private GameObject dashButton;
+    private GameObject invButton;
+
 
     void Start()
     {
         playerController = GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>();
         profT = GameObject.Find("Canvas").gameObject.GetComponent<ProfTekstWay>();
+        controlCircle = GameObject.Find("Control_Circle");
+        dashButton = GameObject.Find("DashButton");
+        invButton = GameObject.Find("InventarisButton");
     }
 
     private void Update()
@@ -49,6 +56,9 @@ public class PlayerShocked : MonoBehaviour
         if (collision.gameObject.name == "Laser")
         {
             playerController.canMove = false;
+            controlCircle.SetActive(false);
+            dashButton.SetActive(false);
+            invButton.SetActive(false);
 
             touchedPosY = collision.transform.position.y + (collision.gameObject.GetComponent<Collider2D>().offset.y);
             playerPosY = transform.position.y + (gameObject.GetComponent<EdgeCollider2D>().offset.y);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 586680611830311127}
   - component: {fileID: 586680611830311126}
   - component: {fileID: 586680611830311125}
-  - component: {fileID: 4939728441851254207}
+  - component: {fileID: 798955022199642741}
   m_Layer: 0
   m_Name: Deuren Kleuren0033
   m_TagString: Collider
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1147074939
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8d475af75c278c349b3adb23519373a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,8 +106,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &4939728441851254207
-BoxCollider2D:
+--- !u!60 &798955022199642741
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.93, y: 0.73}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.166666}
@@ -129,9 +129,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.86, y: 1.46}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.1661835, y: 0.061016083}
+      - {x: 1.5773659, y: 0.20169449}
+      - {x: 1.6358032, y: 0.43171692}
+      - {x: 1.6394234, y: 0.99290085}
+      - {x: 1.5888138, y: 1.2484398}
+      - {x: 0.970047, y: 1.4382668}
+      - {x: 0.004852295, y: 1.4505386}
+      - {x: -0.011478424, y: -0.006095886}
+      - {x: 0.6329994, y: -0.00021743774}
 --- !u!1 &661391156239094070
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8529724827478971923}
-  - component: {fileID: 4582936454087969931}
+  - component: {fileID: 2674002086809097948}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -220,8 +228,8 @@ Transform:
   m_Father: {fileID: 586680611830311127}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4582936454087969931
-BoxCollider2D:
+--- !u!60 &2674002086809097948
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -233,7 +241,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.02, y: 0.73}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -243,9 +251,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.84, y: 1.46}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.881012, y: 1.4380455}
+      - {x: 4.3725357, y: 1.2299309}
+      - {x: 4.3255234, y: 0.93878174}
+      - {x: 4.333584, y: 0.4251938}
+      - {x: 4.372513, y: 0.21599197}
+      - {x: 4.8695297, y: 0.0665741}
+      - {x: 5.2505608, y: 0.008934021}
+      - {x: 5.9542313, y: 0.010196686}
+      - {x: 5.9423065, y: 1.439228}
 --- !u!1 &4857579950552923895
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +406,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872638292327676823, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872638292327676823, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1147074939
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466238957560987111, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466238957560987111, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1147074939
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747558406460994002, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747558406460994002, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1147074939
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630820650371871210, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630820650371871210, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1147074939
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623804694349343753, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623804694349343753, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1147074939
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504773600667676919, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504773600667676919, guid: f99472b766a624d4289447ec76c68f74,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: -1147074939
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f99472b766a624d4289447ec76c68f74, type: 3}

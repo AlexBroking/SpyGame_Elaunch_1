@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4035427656097504236}
   - component: {fileID: 4035427656097504235}
   - component: {fileID: 4035427656097504234}
-  - component: {fileID: 4035427656097504237}
+  - component: {fileID: 3726524882090714919}
   m_Layer: 0
   m_Name: Finaldoor0007
   m_TagString: Collider
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1147074939
+  m_SortingLayer: 2
   m_SortingOrder: 29865
   m_Sprite: {fileID: 21300000, guid: 90486555744498541b24c1f0f7e03dae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,8 +106,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &4035427656097504237
-BoxCollider2D:
+--- !u!60 &3726524882090714919
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.54, y: 0.73}
+  m_Offset: {x: -0.69, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.166666}
@@ -129,9 +129,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.46}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.1661835, y: 0.061016083}
+      - {x: 1.5773659, y: 0.20169449}
+      - {x: 1.6358032, y: 0.43171692}
+      - {x: 1.6394234, y: 0.99290085}
+      - {x: 1.5888138, y: 1.2484398}
+      - {x: 0.970047, y: 1.4382668}
+      - {x: 0.6958365, y: 1.4350128}
+      - {x: 0.68728393, y: 0.0016708374}
+      - {x: 1.0056739, y: 0.0075531006}
 --- !u!1 &4035427656936506798
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4035427657318701913}
-  - component: {fileID: 4035427657318701914}
+  - component: {fileID: 2059128444490130336}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -241,8 +249,8 @@ Transform:
   m_Father: {fileID: 4035427656097504236}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4035427657318701914
-BoxCollider2D:
+--- !u!60 &2059128444490130336
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -254,7 +262,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.39, y: 0.73}
+  m_Offset: {x: 0.67, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -264,9 +272,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.46}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 4.881012, y: 1.4380455}
+      - {x: 4.3725357, y: 1.2299309}
+      - {x: 4.3255234, y: 0.93878174}
+      - {x: 4.333584, y: 0.4251938}
+      - {x: 4.372513, y: 0.21599197}
+      - {x: 4.8695297, y: 0.0665741}
+      - {x: 5.0449657, y: 0.021482162}
+      - {x: 5.262686, y: 0.010203258}
+      - {x: 5.263212, y: 1.4643289}
 --- !u!1 &4035427657693963076
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,12 +355,12 @@ PrefabInstance:
     - target: {fileID: 1623890009835211596, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: 1626053925
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1623890009835211596, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: -1162514311
+      value: -1147074939
       objectReference: {fileID: 0}
     - target: {fileID: 2114841604491615182, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
@@ -354,22 +370,22 @@ PrefabInstance:
     - target: {fileID: 2114841604491615182, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[0]
-      value: 1626053925
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2114841604491615182, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: -1162514311
+      value: -1147074939
       objectReference: {fileID: 0}
     - target: {fileID: 3245455750654368162, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3245455750654368162, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1626053925
+      value: -1147074939
       objectReference: {fileID: 0}
     - target: {fileID: 3245455750654368162, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
@@ -439,12 +455,12 @@ PrefabInstance:
     - target: {fileID: 5354331423869206553, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5354331423869206553, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1626053925
+      value: -1147074939
       objectReference: {fileID: 0}
     - target: {fileID: 5354331423869206553, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
@@ -454,12 +470,12 @@ PrefabInstance:
     - target: {fileID: 5982664759556810612, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5982664759556810612, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: 1626053925
+      value: -1147074939
       objectReference: {fileID: 0}
     - target: {fileID: 5982664759556810612, guid: 8617f35ab6414f44b8098a794f002130,
         type: 3}

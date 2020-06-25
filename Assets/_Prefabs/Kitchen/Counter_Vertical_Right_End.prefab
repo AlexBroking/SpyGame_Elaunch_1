@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6155937223230784273}
   m_Layer: 0
   m_Name: Counter_Vertical_Right_End
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 1.97, y: 2.91}
+    oldSize: {x: 1.9699999, y: 2.9151444}
     newSize: {x: 1.97, y: 2.91}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

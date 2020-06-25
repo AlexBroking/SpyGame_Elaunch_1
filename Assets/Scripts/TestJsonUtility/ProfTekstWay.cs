@@ -31,6 +31,7 @@ public class ProfTekstWay : MonoBehaviour
     private string str;
     private string strComplete;
     private float tekstSpeed = 0.01f;
+    private bool clickedOnTyping = false;
 
     void Start()
     {
@@ -81,34 +82,31 @@ public class ProfTekstWay : MonoBehaviour
                                 if (countStart != countText)
                                 {
                                     placingText = true;
+                                    clickedOnTyping = true;
                                     countStart++;
                                     str = "";
                                     StartCoroutine(setTextLetter());
                                 }
                             }
                         }
-                    }
-
-                    if (touch.phase == TouchPhase.Stationary)
-                    {
+                        
                         if (placingText == true)
                         {
-                            if (profTalk.GetComponent<BoxCollider2D>().bounds.Contains(mousePos))
+                            if (clickedOnTyping == false)
                             {
-                                tekstSpeed = 0.001f;
+                                if (profTalk.GetComponent<BoxCollider2D>().bounds.Contains(mousePos))
+                                {
+                                    clickedOnTyping = true;
+                                    str = "";
+                                    textPlacement.GetComponent<Text>().text = strComplete;
+                                    placingText = false;
+                                }
+                            } else
+                            {
+                                clickedOnTyping = false;
                             }
                         }
-                    }
-
-                    if (touch.phase == TouchPhase.Ended)
-                    {
-                        if (placingText == true)
-                        {
-                            if (profTalk.GetComponent<BoxCollider2D>().bounds.Contains(mousePos))
-                            {
-                                tekstSpeed = 0.01f;
-                            }
-                        }
+                        
                     }
                 }
             }
@@ -120,21 +118,25 @@ public class ProfTekstWay : MonoBehaviour
 
     public void PutText(string textId)
     {
-        if (textId != "")
+        if (openText == false)
         {
-            
-            openText = true;
-            profTalk.SetActive(true);
-            playerMove.canMove = false;
-            GameObject.Find("Player").GetComponent<Animator>().SetInteger("PlayerAnimation", 1);
-            controlCircle.SetActive(false);
-            dashButton.SetActive(false);
-            invButton.SetActive(false);
+            if (textId != "")
+            {
 
-            LetterText(textId);
-        } else
-        {
-            RemoveText();
+                openText = true;
+                profTalk.SetActive(true);
+                playerMove.canMove = false;
+                GameObject.Find("Player").GetComponent<Animator>().SetInteger("PlayerAnimation", 1);
+                controlCircle.SetActive(false);
+                dashButton.SetActive(false);
+                invButton.SetActive(false);
+
+                LetterText(textId);
+            }
+            else
+            {
+                RemoveText();
+            }
         }
     }
 
@@ -156,6 +158,7 @@ public class ProfTekstWay : MonoBehaviour
 
     public void RemoveText()
     {
+        Debug.Log("test");
         openText = false;
         textPlacement.GetComponent<Text>().text = "";
         profTalk.SetActive(false);
@@ -169,6 +172,7 @@ public class ProfTekstWay : MonoBehaviour
         textPlacement.GetComponent<Text>().text = "";
         if (placingText == true)
         {
+            
             strComplete = TalkingInJson.Items[countNumber].TekstArray[countStart].tekst.ToString();
 
             if (TalkingInJson.Items[countNumber].TekstArray[countStart].Name.ToString() == "Max")
@@ -181,15 +185,21 @@ public class ProfTekstWay : MonoBehaviour
                 profTalk.GetComponent<SpriteRenderer>().sprite = James;
             }
 
-            for (int i = 0; i < strComplete.Length; i++)
+            if (strComplete == TalkingInJson.Items[countNumber].TekstArray[countStart].tekst.ToString())
             {
-                str += strComplete[i];
-                textPlacement.GetComponent<Text>().text = str;
-                yield return new WaitForSeconds(tekstSpeed);
-
-                if (i == strComplete.Length - 1)
+                for (int i = 0; i < strComplete.Length; i++)
                 {
-                    placingText = false;
+                    if (placingText == true)
+                    {
+                        str += strComplete[i];
+                        textPlacement.GetComponent<Text>().text = str;
+                        yield return new WaitForSeconds(tekstSpeed);
+
+                        if (i == strComplete.Length - 1)
+                        {
+                            placingText = false;
+                        }
+                    }
                 }
             }
         }

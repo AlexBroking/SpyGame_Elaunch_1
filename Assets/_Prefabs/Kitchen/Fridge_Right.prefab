@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7349238756461013061}
   m_Layer: 0
   m_Name: Fridge_Right
-  m_TagString: Untagged
+  m_TagString: Collider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
-    oldSize: {x: 3.96, y: 5.84}
+    oldSize: {x: 3.9600003, y: 5.8429976}
     newSize: {x: 3.96, y: 5.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

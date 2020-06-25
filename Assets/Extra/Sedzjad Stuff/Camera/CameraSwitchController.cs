@@ -25,6 +25,7 @@ public class CameraSwitchController : MonoBehaviour
     public GameObject foundObject;
  
     private Vector3 mousePos;
+    private float startScale;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class CameraSwitchController : MonoBehaviour
         _playerMove = GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>();
         _MainCamera = GameObject.Find("Main Camera");
         closeButton = GameObject.Find("HeadSlider").transform.GetChild(1).gameObject;
+        startScale = _MainCamera.GetComponent<Camera>().orthographicSize;
 
         Player = GameObject.Find("Player");
 
@@ -64,7 +66,7 @@ public class CameraSwitchController : MonoBehaviour
                         {
                             _InComputer = false;
                             _MainCamera.transform.localScale = new Vector3(1, 1, 1);
-                            _MainCamera.GetComponent<Camera>().orthographicSize = 5;
+                            _MainCamera.GetComponent<Camera>().orthographicSize = startScale;
                             _playerMove.canMove = true;
                             foundObject.GetComponent<Animator>().enabled = false;
                             controlCircle.SetActive(true);
@@ -81,7 +83,7 @@ public class CameraSwitchController : MonoBehaviour
         {
             _playerMove.canMove = false;
             _MainCamera.transform.localScale = new Vector3(2, 2, 1);
-            _MainCamera.GetComponent<Camera>().orthographicSize = 10;
+            _MainCamera.GetComponent<Camera>().orthographicSize = startScale * 2;
 
             _SecurityCameraPos = GameObject.Find("CameraController").transform;
             _MainCamera.transform.position = new Vector3(_SecurityCameraPos.position.x, _SecurityCameraPos.position.y, -10);

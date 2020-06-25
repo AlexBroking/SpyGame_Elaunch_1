@@ -54,20 +54,8 @@ TagManager:
   - name: FloorLayer
     uniqueID: 3222946071
     locked: 0
-  - name: BackObjectLayer
-    uniqueID: 1626053925
-    locked: 0
-  - name: PlayerLayer
-    uniqueID: 1324289843
-    locked: 0
-  - name: FrontObjectLayer
-    uniqueID: 3132452985
-    locked: 0
-  - name: FrontLayer
-    uniqueID: 2410052433
-    locked: 0
-  - name: GuardLayer
-    uniqueID: 2642275539
+  - name: Objects
+    uniqueID: 3147892357
     locked: 0
   - name: RoofLayer
     uniqueID: 943951855

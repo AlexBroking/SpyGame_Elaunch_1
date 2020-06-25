@@ -2,10 +2,10 @@
 	"vragen": [{
 
 			"id": "Notitie1",
-			"ProfTekst": "Wat gebruiken Chromebooks om je ten alle tijden te beschermen tegen hackers?",
+			"ProfTekst": "Chromebooks beschermen je te allen tijden tegen hackers door middel van",
 
 			"A0": [{
-				"Tekst": "Data decryptie",
+				"Tekst": "Data-decryptie",
 				"Answer": "false"
 			}],
 
@@ -15,7 +15,7 @@
 			}],
 
 			"A2": [{
-				"Tekst": "Data encryptie",
+				"Tekst": "Data-encryptie",
 				"Answer": "true"
 			}]
 		},
@@ -42,20 +42,20 @@
 		{
 
 			"id": "Notitie3",
-			"ProfTekst": "Chromebooks zijn altijd up to date met de laatste en beste ChromeOS. Waardoor komt dit?",
+			"ProfTekst": "Chromebooks beschikken altijd over het laatste en beste ChromeOS. Hoe kan dit?",
 
 			"A0": [{
-				"Tekst": "Elke zes weken komt een monteur de laatste update installeren.",
+				"Tekst": "Een monteur komt iedere zes weken langs om de laatste update te installeren.",
 				"Answer": "false"
 			}],
 
 			"A1": [{
-				"Tekst": "Elke Chromebook-eigenaar krijgt elke zes weken een email binnen met een downloadbare update.",
+				"Tekst": "De Chromebook eigenaar krijgt iedere zes weken een mail met de nieuwe update.",
 				"Answer": "false"
 			}],
 
 			"A2": [{
-				"Tekst": "Zij krijgen elke zes weken een automatische OS update.",
+				"Tekst": "Chromebooks krijgen iedere zes weken automatisch een OS update.",
 				"Answer": "true"
 			}]
 		},
@@ -102,40 +102,40 @@
 		{
 
 			"id": "USP1",
-			"ProfTekst": "Wat is Verified Boot? Verified Boot is...",
+			"ProfTekst": "James, voordat ik deze deur openmaak: wat is Verified Boot ook al weer?",
 
 			"A0": [{
-				"Tekst": " ...een controle die de Chromebook uitvoert bij het opstarten, waarbij corrupties automatisch worden hersteld.",
+				"Tekst": " Een controle die Chromebook uitvoert bij het opstarten, waarbij corrupties automatisch worden hersteld.",
 				"Answer": "true"
 			}],
 
 			"A1": [{
-				"Tekst": "...een technologie die de hardware automatisch scant op problemen voordat de gebruiker inlogt, om te verzekeren dat er geen corrupties zijn.",
+				"Tekst": "Een technologie die de hardware automatisch scant op problemen om te verzekeren dat er geen corrupties zijn voordat de gebruiker inlogt.",
 				"Answer": "false"
 			}],
 
 			"A2": [{
-				"Tekst": "...een setting die er voor zorgt dat een gebruiker automatisch wordt genotificeerd wanneer iemand meerdere malen fout inlogt.",
+				"Tekst": "Een instelling die ervoor zorgt dat de gebruiker een bericht krijgt wanneer iemand meerdere malen een foute inlog invoert.",
 				"Answer": "false"
 			}]
 		},
 		{
 
 			"id": "USP2",
-			"ProfTekst": "Wat is Sandboxing? Sandboxing is...",
+			"ProfTekst": "James, voordat ik deze deur openmaak. Wat is Sandboxing ook al weer?",
 
 			"A0": [{
-				"Tekst": "...een technologie die je laptop beveiligt door bedreigingen te isoleren, waardoor je zelfs veilig bent op websites met schadelijke content.",
+				"Tekst": "Een technologie die je laptop beveiligt door bedreigingen te isoleren, waardoor je zelfs veilig bent op websites met schadelijke content.",
 				"Answer": "true"
 			}],
 
 			"A1": [{
-				"Tekst": "...een browserfunctie die een hackersaanval genaamt 'Fishing' tegen gaat, door de website te isoleren.",
+				"Tekst": "Een browserfunctie die een hackersaanvaal genaamd “Phishing” tegengaat door de website te isoleren.",
 				"Answer": "false"
 			}],
 
 			"A2": [{
-				"Tekst": "...een setting die de gebruiker direct waarschuwt als hij of zij zich op een gevaarlijke website begeeft. Alweer, als iemand een spellingsfout ziet graag even doorgeven",
+				"Tekst": "Een setting die de gebruiker direct waarschuwt als hij zich op een gevaarlijke website begeeft.",
 				"Answer": "false"
 			}]
 		}

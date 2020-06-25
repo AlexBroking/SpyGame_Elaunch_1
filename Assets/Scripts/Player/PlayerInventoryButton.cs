@@ -42,7 +42,7 @@ public class PlayerInventoryButton : MonoBehaviour
     void Update()
     {
         outPullStart = ButtonIcon.transform.position;
-        outPullEnd = new Vector3(7.915f + ButtonIcon.transform.position.x, ButtonIcon.transform.position.y + 0.01f, ButtonIcon.transform.position.z);
+        outPullEnd = new Vector3((7.915f * this.transform.localScale.x) + ButtonIcon.transform.position.x, ButtonIcon.transform.position.y + 0.01f, ButtonIcon.transform.position.z);
 
         
         if (closingInv == false)

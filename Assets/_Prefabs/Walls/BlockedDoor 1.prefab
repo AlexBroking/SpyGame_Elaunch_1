@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8940148811108763871}
   - component: {fileID: 3817180744882833518}
-  - component: {fileID: 6889497416227069959}
   - component: {fileID: 556993828}
+  - component: {fileID: 4653315417924982793}
   m_Layer: 0
   m_Name: BLockedDoor_Blocks
   m_TagString: Untagged
@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1147074939
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2b2e11059587eac4eaf28954f7c50274, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -83,32 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6889497416227069959
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079618104310316760}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.9900198, y: 2.53}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.33333334, y: 0}
-    oldSize: {x: 5.94, y: 7.3}
-    newSize: {x: 5.94, y: 7.3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.61, y: 0.3}
-  m_EdgeRadius: 0
 --- !u!114 &556993828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +95,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e774889438c87c54ca07b37e8bb1cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &4653315417924982793
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079618104310316760}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.9900198, y: 2.55}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.33333334, y: 0}
+    oldSize: {x: 5.94, y: 7.3}
+    newSize: {x: 5.94, y: 7.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.2}
+  m_EdgeRadius: 0
 --- !u!1 &2153089635203919610
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3200360085821940246}
   - component: {fileID: 3563292703807341462}
-  - component: {fileID: 5300770510687499321}
+  - component: {fileID: 6764470193552096790}
   m_Layer: 0
   m_Name: BlockedDoor 1
   m_TagString: Collider
@@ -248,9 +248,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1147074939
+  m_SortingLayer: 2
+  m_SortingOrder: 29802
   m_Sprite: {fileID: 21300000, guid: 953e472ed1dc1594d96f7e1e3a7b221a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -262,7 +262,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5300770510687499321
+--- !u!61 &6764470193552096790
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,7 +275,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.9900198, y: 0.15}
+  m_Offset: {x: 0.9900198, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.33333334, y: 0}
@@ -286,5 +286,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.61, y: 0.3}
+  m_Size: {x: 2, y: 0.2}
   m_EdgeRadius: 0

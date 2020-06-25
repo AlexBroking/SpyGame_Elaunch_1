@@ -50,6 +50,8 @@ public class PlayerTrigger : MonoBehaviour
 
                             if (foundObject.GetComponent<BoxCollider2D>().bounds.Contains(mousePos))
                             {
+                                GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>().canMove = false;
+                                GameObject.Find("Player").GetComponent<PlayerItem>().PickupNow = true;
 
                                 foundObject.GetComponent<Animator>().enabled = true;
                                 laser.transform.GetComponent<BoxCollider2D>().enabled = false;
@@ -59,6 +61,9 @@ public class PlayerTrigger : MonoBehaviour
 
                                 thisLaser.buttonAniTwo.SetInteger("Button", 0);
                                 thisLaser.buttonAniTwo.speed = 1;
+                                foundObject.transform.parent.GetComponent<AudioSource>().Play();
+                                foundObject.transform.parent.transform.GetChild(2).GetComponent<AudioSource>().Play();
+                                foundObject.transform.parent.transform.GetChild(4).GetComponent<AudioSource>().Stop();
                             }
                         }
                     }

@@ -2,33 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class SortingItems : MonoBehaviour
 {
-    private float playerY;
-    private GameObject playerObject;
 
     void Start()
     {
-        playerObject = GameObject.Find("Player");
-    }
-
-    void Update()
-    {
-        playerY = playerObject.transform.position.y;
-        float childY = this.gameObject.transform.position.y;
-
-        float childPositionY = childY + (this.gameObject.GetComponent<Collider2D>().offset.y);
-
-        float positionY = playerY + (playerObject.GetComponent<EdgeCollider2D>().offset.y);
-
-        if (positionY < childPositionY)
-        {
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = "BackObjectLayer";
-        }
-
-        if (positionY > childPositionY)
-        {
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = "FrontObjectLayer";
-        }
+        GameObject usedChild = this.gameObject;
+        float childY = usedChild.transform.position.y;
+        float childPositionY = childY + (usedChild.GetComponent<Collider2D>().offset.y) - 1.46f;
+        int testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = (testint * 3) - 6;
     }
 }

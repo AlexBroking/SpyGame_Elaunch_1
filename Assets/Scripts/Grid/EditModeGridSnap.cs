@@ -10,7 +10,63 @@ public class EditModeGridSnap : MonoBehaviour
     private float snapValueY = 1.46f;
     private float depth = 0;
 
-    
+    private GameObject objectsLayer;
+    private GameObject wallsLayer;
+    private GameObject onWalls;
+
+    void Start()
+    {
+        objectsLayer = GameObject.Find("Objects");
+        wallsLayer = GameObject.Find("Walls");
+        onWalls = GameObject.Find("OnWalls");
+
+        // Objects // Object = Midden - Player = Midden
+        for (int i = 0; i < objectsLayer.transform.childCount; i++)
+        {
+            if (objectsLayer.transform.GetChild(i).gameObject.tag == "Collider")
+            {
+                GameObject usedChild = objectsLayer.transform.GetChild(i).gameObject;
+                float childY = usedChild.transform.position.y;
+                float childPositionY = childY + (usedChild.GetComponent<Collider2D>().offset.y) - 1.46f;
+                int testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+                usedChild.GetComponent<SpriteRenderer>().sortingOrder = (testint * 3) - 6;
+            }
+        }
+
+        for (int i = 0; i < wallsLayer.transform.childCount; i++)
+        {
+            if (wallsLayer.transform.GetChild(i).gameObject.tag == "Collider")
+            {
+                GameObject usedChild = wallsLayer.transform.GetChild(i).gameObject;
+                float childY = usedChild.transform.position.y;
+                float childPositionY = childY + (usedChild.GetComponent<Collider2D>().offset.y) - (usedChild.GetComponent<Collider2D>().bounds.size.y / 2);
+                int testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+                usedChild.GetComponent<SpriteRenderer>().sortingOrder = testint * 3;
+            }
+        }
+
+        for (int i = 0; i < onWalls.transform.childCount; i++)
+        {
+            if (onWalls.transform.GetChild(i).gameObject.tag == "Collider")
+            {
+                GameObject usedChild = onWalls.transform.GetChild(i).gameObject;
+                float childY = usedChild.transform.position.y;
+                float childPositionY = childY + (usedChild.GetComponent<Collider2D>().offset.y) - (usedChild.GetComponent<Collider2D>().bounds.size.y / 2);
+                int testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+                usedChild.GetComponent<SpriteRenderer>().sortingOrder = (testint * 3) + 1;
+            }
+        }
+
+        if (Application.isPlaying)
+        {
+            this.gameObject.GetComponent<EditModeGridSnap>().enabled = false;
+        }
+        else
+        {
+            this.gameObject.GetComponent<EditModeGridSnap>().enabled = true;
+        }
+    }
+
     void Update()
     {
         foreach (Transform test1 in transform)
@@ -84,15 +140,6 @@ public class EditModeGridSnap : MonoBehaviour
                 }
                 
             }
-        }
-
-        if (Application.isPlaying)
-        {
-            this.gameObject.GetComponent<EditModeGridSnap>().enabled = false;
-        }
-        else
-        {
-            this.gameObject.GetComponent<EditModeGridSnap>().enabled = true;
         }
     }
 }

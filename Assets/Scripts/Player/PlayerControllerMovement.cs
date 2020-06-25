@@ -26,11 +26,14 @@ public class PlayerControllerMovement : MonoBehaviour
     // Player Movement // 
     public bool canMove = false;
     private GameObject Player;
-    public float playerSpeed = 200;
+    public float playerSpeed;
+    private float startSpeed;
     private Vector2 movingAngle;
     public float playerDegrees;
     private Rigidbody2D playerRigid;
     public bool Ismoving = false;
+    private bool betweenStick;
+    private float nowDistance;
 
     // Canvas // 
     private GameObject tDashButton;
@@ -49,10 +52,13 @@ public class PlayerControllerMovement : MonoBehaviour
         // Calculate max distance stick may travel // 
         maxStickDistance = biggerCircle.transform.localScale.x * GameObject.Find("Canvas").GetComponent<RectTransform>().transform.localScale.x * 3 / 2;
 
+
+
         // Get Canvas / Dash / Inv button // 
         tDashButton = GameObject.Find("DashButton");
         tInventoryButton = GameObject.Find("InventarisButton");
         getInv = this.gameObject.GetComponent<PlayerInventoryButton>();
+        startSpeed = playerSpeed;
     }
 
 
@@ -192,7 +198,16 @@ public class PlayerControllerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        
+        if (this.gameObject.GetComponent<PlayerDashButton>().dashTiming == false)
+        {
+
+            nowDistance = Vector3.Distance(smallerCircle.transform.position, biggerCircle.transform.position);
+
+            float betweenPoints = nowDistance / maxStickDistance;
+            float newSpeed = (200 * betweenPoints);
+
+            playerSpeed = 100 + newSpeed;
+        }
 
         float posDistance = Vector2.Distance(mousePos, biggerPos);
         if (posDistance >= maxStickDistance)
