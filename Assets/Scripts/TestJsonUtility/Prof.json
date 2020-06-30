@@ -28,6 +28,10 @@
 				{
 					"Name": "Max",
 					"tekst": "Geen probleem! Met Verified Boot voert je Chromebook een controle uit elke keer dat hij opstart."
+				},
+				{
+					"Name": "Max",
+					"tekst": "Bij deze controle wordt gekeken naar corrupties en als er iets niet klopt wordt dat automatisch herstelt."
 				}]
 		},
 		{
@@ -136,7 +140,7 @@
 			"id": "RedDoor",
 			"TekstArray": [{
 				"Name": "Max",
-				"tekst": "Deze deur is zwaar beveiligd. Je hebt meer informatie nodig over DarkTech voordat ik de beveiliging kan passeren."
+				"tekst": "Deze deur is zwaar beveiligd. Je hebt meer informatie nodig over DarkTech voordat ik de beveiliging kan uitschakelen."
 			}]
 		},
 		{

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CeilingAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 64
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8f8b1c505473e684e95cc3519bd090ec, type: 3}
+    totalSpriteSurfaceArea: 45120
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: fa60a41035882a04c848fee01e5f0dd5, type: 3}
+  - {fileID: 21300000, guid: d8dc82411f9797342b09d15346c8d4ca, type: 3}
+  - {fileID: 21300000, guid: 4a275052b0d11644f8701c1e31f4fafb, type: 3}
+  - {fileID: 21300000, guid: 14e37c969796f594aa77156e12d46398, type: 3}
+  - {fileID: 21300000, guid: c1945627744f49e4ebdd4fdfdb905a98, type: 3}
+  - {fileID: 21300000, guid: 6ae82348adfffa941a5d109f7a18e36d, type: 3}
+  - {fileID: 21300000, guid: b91e8588c3b5915408ba434d68137c17, type: 3}
+  - {fileID: 21300000, guid: 32f8e909000307f45ae698a8dad2f759, type: 3}
+  - {fileID: 21300000, guid: c31b61997bf501c47bea4b00d92a9d57, type: 3}
+  - {fileID: 21300000, guid: 8bc021f90bbe45542ad7ccac2d5cabee, type: 3}
+  - {fileID: 21300000, guid: cfba2cdace7b0034db8eddc31e3bb6d5, type: 3}
+  - {fileID: 21300000, guid: 3532ac5bf40c6644c8518925d09e1984, type: 3}
+  - {fileID: 21300000, guid: 32cc966b1577f434fb177783a4a49338, type: 3}
+  - {fileID: 21300000, guid: db54f92c76cbf5d47adac7fe20c5ef44, type: 3}
+  - {fileID: 21300000, guid: feed432d948bf8743b92f9148ada4ab4, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - negen
+  - vier
+  - veertien
+  - zes
+  - een
+  - elf
+  - zeven
+  - twaalf
+  - acht
+  - twee
+  - vijftien
+  - drie
+  - dertien
+  - tien
+  - vijf
+  m_Tag: CeilingAtlas
+  m_IsVariant: 0

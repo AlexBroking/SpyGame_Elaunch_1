@@ -1,27 +1,7 @@
-{
+ï»¿{
 	"vragen": [{
 
 			"id": "Notitie1",
-			"ProfTekst": "Chromebooks beschermen je te allen tijden tegen hackers door middel van",
-
-			"A0": [{
-				"Tekst": "Data-decryptie",
-				"Answer": "false"
-			}],
-
-			"A1": [{
-				"Tekst": "Versleutelde connectie",
-				"Answer": "false"
-			}],
-
-			"A2": [{
-				"Tekst": "Data-encryptie",
-				"Answer": "true"
-			}]
-		},
-		{
-
-			"id": "Notitie2",
 			"ProfTekst": "Omdat Chromebooks zo snel opstarten is er geen tijd om beschadigende software te installeren. Hoe snel starten Chromebooks op?",
 
 			"A0": [{
@@ -37,6 +17,26 @@
 			"A2": [{
 				"Tekst": "In 15 seconden",
 				"Answer": "false"
+			}]
+		},
+		{
+
+			"id": "Notitie2",
+			"ProfTekst": "Chromebooks beschermen je te allen tijden tegen hackers door middel van",
+
+			"A0": [{
+				"Tekst": "Data-decryptie",
+				"Answer": "false"
+			}],
+
+			"A1": [{
+				"Tekst": "Versleutelde connectie",
+				"Answer": "false"
+			}],
+
+			"A2": [{
+				"Tekst": "Data-encryptie",
+				"Answer": "true"
 			}]
 		},
 		{
@@ -62,15 +62,15 @@
 		{
 
 			"id": "Notitie4",
-			"ProfTekst": "Een Chromebook-account is aan een Google-account gekoppeld. Welke van de onderstaande is hiervan een voordeel?",
+			"ProfTekst": "Een Chromebook-account is aan een Google-account gekoppeld. Wat is daar een voordeel van?",
 
 			"A0": [{
-				"Tekst": "Al je files worden automatisch opgeslagen op je Google cloud.",
+				"Tekst": "Al je files worden automatisch opgeslagen in de Google cloud.",
 				"Answer": "false"
 			}],
 
 			"A1": [{
-				"Tekst": "Je kan de Chromebook nog steeds gebruiken op een ander account, zelfs al is jouw eigen account gecomprimeerd.",
+				"Tekst": "Je kan de Chromebook nog steeds gebruiken op een ander account, zelfs als jouw eigen account niet meer toegankelijk is.",
 				"Answer": "true"
 			}],
 
@@ -122,7 +122,7 @@
 		{
 
 			"id": "USP2",
-			"ProfTekst": "James, voordat ik deze deur openmaak. Wat is Sandboxing ook al weer?",
+			"ProfTekst": "James, voordat ik deze deur openmaak. Wat is sandboxing ook al weer?",
 
 			"A0": [{
 				"Tekst": "Een technologie die je laptop beveiligt door bedreigingen te isoleren, waardoor je zelfs veilig bent op websites met schadelijke content.",
@@ -130,7 +130,7 @@
 			}],
 
 			"A1": [{
-				"Tekst": "Een browserfunctie die een hackersaanvaal genaamd “Phishing” tegengaat door de website te isoleren.",
+				"Tekst": "Een browserfunctie die een hackersaanvaal genaamd ï¿½Phishingï¿½ tegengaat door de website te isoleren.",
 				"Answer": "false"
 			}],
 

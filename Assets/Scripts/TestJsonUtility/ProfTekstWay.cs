@@ -198,6 +198,7 @@ public class ProfTekstWay : MonoBehaviour
                         if (i == strComplete.Length - 1)
                         {
                             placingText = false;
+                            clickedOnTyping = true;
                         }
                     }
                 }

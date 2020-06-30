@@ -133,7 +133,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerAni.SetInteger("PlayerAnimation", 4);
             Vector3 initialPosition = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y,-10);
-            canvas.transform.parent.position = Vector3.Lerp(canvas.transform.parent.position, Player.transform.position, Time.deltaTime * 10);
+            canvas.transform.parent.position = Vector3.Lerp(canvas.transform.parent.position, new Vector3(Player.transform.position.x, Player.transform.position.y, -10), Time.deltaTime * 10);
 
             if (playerAni.GetCurrentAnimatorStateInfo(0).IsName("Shock") == true)
             {
