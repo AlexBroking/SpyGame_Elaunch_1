@@ -12,5 +12,12 @@ public class ProfTekst
 public class ProfInfo
 {
     public string id;
-    public string Tekst;
+    public allTekst[] TekstArray;
+}
+
+[System.Serializable]
+public class allTekst
+{
+    public string Name;
+    public string tekst;
 }

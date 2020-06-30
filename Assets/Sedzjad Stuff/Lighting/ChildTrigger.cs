@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ChildTrigger : MonoBehaviour
 {
-    private void OnTriggerStay2D(Collider2D collision)
+    public bool _In =false;
+    public void OnTriggerStay2D(Collider2D collision)
     {
-        gameObject.GetComponentInParent<LightingPlafond>().PullTrigger(collision);
+        _In = true;
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
-        gameObject.GetComponentInParent<LightingPlafond>().LeavingArea(collision);
+        _In = false;
     }
 }

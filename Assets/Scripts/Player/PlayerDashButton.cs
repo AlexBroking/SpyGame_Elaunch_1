@@ -27,13 +27,7 @@ public class PlayerDashButton : MonoBehaviour
     private float normalspeed;
     public bool dashTiming = false;
 
-    // Timer // 
-    private float firstTimer = 0;
-    private float secondTimer = 0;
-    private float timeToDash = 0.4f;
-    private float timeAfterDash = 3f;
-    
-
+    private AudioSource audioData;
 
     void Start()
     {
@@ -44,25 +38,28 @@ public class PlayerDashButton : MonoBehaviour
         normalCamSpeed = camP.camSpeed;
         dashSpeed = playerController.playerSpeed * 2;
         normalspeed = playerController.playerSpeed;
+        audioData = dashButton.GetComponent<AudioSource>();
     }
 
     void Update()
     {
+
         canMove = playerController.canMove;
 
         if (canMove == true)
         {
-            // Check for input & if player can dash (needs to move) //
-            if (Input.touchCount > 0)
-            {
-                canIDash = playerController.Ismoving;
+            canIDash = playerController.Ismoving;
 
-                if (canIDash == true) 
+            if (canIDash == true)
+            {
+                if (isDashing == false)
                 {
-                    foreach (Touch touch in Input.touches)
+                    // Check for input & if player can dash (needs to move) //
+                    if (Input.touchCount > 0)
                     {
-                        if (isDashing == false)
+                        foreach (Touch touch in Input.touches)
                         {
+
                             touchPos = Camera.main.ScreenToWorldPoint(touch.position);
                             touchPos = new Vector3(touchPos.x, touchPos.y, dashButton.transform.position.z);
 
@@ -70,58 +67,33 @@ public class PlayerDashButton : MonoBehaviour
                             {
                                 if (dashButton.GetComponent<BoxCollider2D>().bounds.Contains(touchPos))
                                 {
-                                    playerController.playerSpeed = dashSpeed;
-                                    camP.camSpeed = camDashSpeed;
-                                    dashTiming = true;
-                                    isDashing = true;
+                                    StartCoroutine(Dash());
                                 }
                             }
                         }
                     }
-                }
-            }
 
-            if (isDashing == true)
-            {
-
-                if (firstTimer < timeToDash)
-                {
-                    firstTimer += Time.deltaTime;
-                }
-
-                if (firstTimer > timeToDash)
-                {
-                    dashTiming = false;
-                    secondTimer += Time.deltaTime;
-                    playerController.playerSpeed = normalspeed;
-                    camP.camSpeed = normalCamSpeed;
-
-                    if (secondTimer > timeAfterDash)
+                    if (Input.GetKeyDown(KeyCode.D))
                     {
-                        isDashing = false;
-                        firstTimer = 0;
-                        secondTimer = 0;
-
+                        StartCoroutine(Dash());
                     }
                 }
-
-            } else
-            {
-                isDashing = false;
-                dashTiming = false;
-                firstTimer = 0;
-                secondTimer = 0;
-                playerController.playerSpeed = normalspeed;
-                camP.camSpeed = normalCamSpeed;
             }
-        } else
-        {
-            dashTiming = false;
-            isDashing = false;
-            firstTimer = 0;
-            secondTimer = 0;
-            camP.camSpeed = normalCamSpeed;
-            playerController.playerSpeed = normalspeed;
-        }
+        } 
+    }
+
+    private IEnumerator Dash()
+    {
+        audioData.Play(0);
+        playerController.playerSpeed = dashSpeed;
+        camP.camSpeed = camDashSpeed;
+        dashTiming = true;
+        isDashing = true;
+        yield return new WaitForSeconds(0.4f);
+        dashTiming = false;
+        playerController.playerSpeed = normalspeed;
+        camP.camSpeed = normalCamSpeed;
+        yield return new WaitForSeconds(2f);
+        isDashing = false;
     }
 }

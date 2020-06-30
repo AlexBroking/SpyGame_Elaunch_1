@@ -5,39 +5,59 @@ using UnityEngine;
 public class LightingPlafond : MonoBehaviour
 {
     private GameObject _Player;
+    public SpriteRenderer[] _SpriteR;
+    public List<GameObject> lijstje;
 
-    public MeshRenderer[] _MeshR;
-    // Start is called before the first frame update
+    private float fadeSpeed;
+    private float whatFade;
+
+
+    private float _Alpha;
+
+   
     void Start()
     {
+        _Alpha = 255;
         _Player = GameObject.Find("Player");
 
-        
-        _MeshR = new MeshRenderer[gameObject.GetComponentsInChildren<MeshRenderer>().Length];
-        _MeshR = gameObject.GetComponentsInChildren<MeshRenderer>();
-    }
+        _SpriteR = gameObject.GetComponentsInChildren<SpriteRenderer>();
 
-
-    public void PullTrigger(Collider2D collider)
-    {
-        if (_Player.GetComponent<EdgeCollider2D>())
+        for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            
-            foreach (MeshRenderer _Mesh in _MeshR)
+            if(gameObject.transform.GetChild(i).name == "Roof")
             {
-
-                _Mesh.enabled = false;
-
+                lijstje.Add(gameObject.transform.GetChild(i).gameObject);
             }
         }
     }
 
-    public void LeavingArea(Collider2D collider)
+    public void Update()
     {
-        foreach (MeshRenderer _Mesh in _MeshR)
+
+        foreach (GameObject _object in lijstje)
         {
-            _Mesh.enabled = true;
+            if (gameObject.transform.GetChild(0).GetComponent<ChildTrigger>()._In == true)
+            {
+                fadeSpeed = 3.5f;
+                whatFade = 0;
+            }
+
+            if (gameObject.transform.GetChild(0).GetComponent<ChildTrigger>()._In == false)
+            {
+                fadeSpeed = 3.5f;
+                whatFade = 255;
+            }
+
+            foreach (SpriteRenderer _Sprite in _SpriteR)
+            {
+
+                _Sprite.color = new Color32(0, 0, 0, (byte)_Alpha);
+            }
 
         }
+
+
+        _Alpha = Mathf.Lerp(_Alpha, whatFade, Time.deltaTime * fadeSpeed);
     }
+
 }

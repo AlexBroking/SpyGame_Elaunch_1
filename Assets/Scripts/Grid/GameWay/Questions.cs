@@ -18,16 +18,18 @@ public class Questions : MonoBehaviour
     private GameObject dashButton;
 
     private GameObject thisQuestionDoor;
-    private bool doorAnswer;
+
 
     public TextAsset jsonFile;
     private Vragen QuestionsInJson;
+    private ProfTekstWay profTekst;
 
     private void Start()
     {
         dashButton = GameObject.Find("DashButton");
         invScript = this.gameObject.GetComponent<PlayerInventoryButton>();
         playerMove = this.gameObject.GetComponent<PlayerControllerMovement>();
+        profTekst = this.gameObject.GetComponent<ProfTekstWay>();
         controlCircle = GameObject.Find("Control_Circle");
         questionTab = GameObject.Find("QuestionsTab");
 
@@ -35,6 +37,7 @@ public class Questions : MonoBehaviour
 
 
         QuestionsInJson = JsonUtility.FromJson<Vragen>(jsonFile.text);
+        
     }
 
     private void Update()
@@ -49,59 +52,52 @@ public class Questions : MonoBehaviour
                 {
                     if (openTab == true)
                     {
-                        for (int i = 0; i < questionTab.transform.GetChild(0).childCount; i++) 
+                        for (int i = 0; i < questionTab.transform.GetChild(0).childCount; i++)
                         {
                             mousePos = new Vector3(mousePos.x, mousePos.y, questionTab.transform.GetChild(0).GetChild(i).transform.position.z);
                             if (questionTab.transform.GetChild(0).GetChild(i).GetComponent<BoxCollider2D>().bounds.Contains(mousePos))
                             {
+
                                 if (questionTab.transform.GetChild(0).GetChild(i).name == "0")
                                 {
-                                    if (QuestionsInJson.vragen[jsonQuestion].A0[jsonQuestion].Answer.ToString() == "False")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A0[0].Answer.ToString() == "false")
                                     {
-                                        Debug.Log("false");
-                                        doorAnswer = false;
+                                        WhatDoorNow(false);
                                     }
 
-                                    if (QuestionsInJson.vragen[jsonQuestion].A0[jsonQuestion].Answer.ToString() == "true")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A0[0].Answer.ToString() == "true")
                                     {
-                                        Debug.Log("true");
-                                        doorAnswer = true;
+                                        WhatDoorNow(true);
                                     }
                                 }
 
                                 if (questionTab.transform.GetChild(0).GetChild(i).name == "1")
                                 {
-                                    if (QuestionsInJson.vragen[jsonQuestion].A1[jsonQuestion].Answer.ToString() == "False")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A1[0].Answer.ToString() == "false")
                                     {
-                                        Debug.Log("false");
-                                        doorAnswer = false;
+                                        WhatDoorNow(false);
                                     }
 
-                                    if (QuestionsInJson.vragen[jsonQuestion].A1[jsonQuestion].Answer.ToString() == "true")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A1[0].Answer.ToString() == "true")
                                     {
-                                        Debug.Log("true");
-                                        doorAnswer = true;
+                                        WhatDoorNow(true);
                                     }
                                 }
 
                                 if (questionTab.transform.GetChild(0).GetChild(i).name == "2")
                                 {
-                                    if (QuestionsInJson.vragen[jsonQuestion].A2[jsonQuestion].Answer.ToString() == "False")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A2[0].Answer.ToString() == "false")
                                     {
-                                        Debug.Log("false");
-                                        doorAnswer = false;
+                                        WhatDoorNow(false);
                                     }
 
-                                    if (QuestionsInJson.vragen[jsonQuestion].A2[jsonQuestion].Answer.ToString() == "true")
+                                    if (QuestionsInJson.vragen[jsonQuestion].A2[0].Answer.ToString() == "true")
                                     {
-                                        Debug.Log("true");
-                                        doorAnswer = true;
+                                        
+                                        WhatDoorNow(true);
                                     }
                                 }
 
-                                
-
-                                WhatDoorNow(doorAnswer);
                                 CloseQuestion();
                             }
                         }
@@ -111,23 +107,30 @@ public class Questions : MonoBehaviour
                         {
                             CloseQuestion();
                         }
-
                     }
                 }
-
             }
         }
     }
 
     public void OpenQuestion(string doorId, GameObject thisDoor)
     {
+        
         thisQuestionDoor = thisDoor;
-        openTab = true;
         playerMove.canMove = false;
+        GameObject.Find("Player").GetComponent<Animator>().SetInteger("PlayerAnimation", 1);
         invScript.inventoryManager.SetActive(false);
         invScript.ButtonIcon.SetActive(false);
         controlCircle.SetActive(false);
         dashButton.SetActive(false);
+
+        StartCoroutine(WaitForQuestion(doorId));
+    }
+
+    private IEnumerator WaitForQuestion(string doorId)
+    {
+        yield return new WaitForSeconds(1);
+        openTab = true;
         questionTab.SetActive(true);
 
         for (int i = 0; i < QuestionsInJson.vragen.Length; i++)
@@ -146,39 +149,31 @@ public class Questions : MonoBehaviour
 
     public void CloseQuestion()
     {
-        playerMove.canMove = true;
-        invScript.inventoryManager.SetActive(true);
-        invScript.ButtonIcon.SetActive(true);
-        controlCircle.SetActive(true);
         questionTab.SetActive(false);
-        dashButton.SetActive(true);
         openTab = false;
     }
 
     public void WhatDoorNow(bool Answer)
     {
-        if (thisQuestionDoor.GetComponent<NewDoorBehaviour>().Qdoor == true)
-        {
-            thisQuestionDoor.transform.parent.GetComponent<Animator>().speed = 1;
-            thisQuestionDoor.GetComponent<NewDoorBehaviour>().Qdoor = false;
-            thisQuestionDoor.GetComponent<NewDoorBehaviour>().greenDoor = true;
-        }
-
-        if (thisQuestionDoor.GetComponent<NewDoorBehaviour>().Pdoor == true)
+        if (thisQuestionDoor.GetComponent<NewDoorBehaviour>().Qdoor == true || thisQuestionDoor.GetComponent<NewDoorBehaviour>().Pdoor == true)
         {
             if (Answer == true)
             {
                 thisQuestionDoor.transform.parent.GetComponent<Animator>().speed = 1;
                 thisQuestionDoor.GetComponent<NewDoorBehaviour>().Pdoor = false;
+                thisQuestionDoor.GetComponent<NewDoorBehaviour>().Qdoor = false;
                 thisQuestionDoor.GetComponent<NewDoorBehaviour>().greenDoor = true;
-            }
 
-            if (Answer == false)
-            {
-                thisQuestionDoor.transform.parent.GetComponent<Animator>().speed = 1;
-                thisQuestionDoor.GetComponent<NewDoorBehaviour>().Pdoor = false;
-                thisQuestionDoor.GetComponent<NewDoorBehaviour>().blackDoor = true;
+                playerMove.canMove = true;
+                invScript.inventoryManager.SetActive(true);
+                invScript.ButtonIcon.SetActive(true);
+                controlCircle.SetActive(true);
             }
+        }
+
+        if (Answer == false)
+        {
+            profTekst.PutText("WrongAnswer");
         }
     }
 }

@@ -12,11 +12,22 @@ public class PlayerShocked : MonoBehaviour
     private float newPlayerPosY;
     private float touchedPosY;
     public bool aniWorking;
+    private ProfTekstWay profT;
+    private string laserHitText = "LaserHit";
+    private bool afterHit;
+
+    private GameObject controlCircle;
+    private GameObject dashButton;
+    private GameObject invButton;
 
 
     void Start()
     {
         playerController = GameObject.Find("Canvas").GetComponent<PlayerControllerMovement>();
+        profT = GameObject.Find("Canvas").gameObject.GetComponent<ProfTekstWay>();
+        controlCircle = GameObject.Find("Control_Circle");
+        dashButton = GameObject.Find("DashButton");
+        invButton = GameObject.Find("InventarisButton");
     }
 
     private void Update()
@@ -28,6 +39,15 @@ public class PlayerShocked : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, newPlayerPosY + movingbacknumber, transform.position.z), 15 * Time.deltaTime);
             }
         }
+        
+        if (isShocking == false)
+        {
+            if (afterHit == true)
+            {
+                profT.PutText(laserHitText);
+                afterHit = false;
+            }
+        }
     }
 
 
@@ -36,6 +56,9 @@ public class PlayerShocked : MonoBehaviour
         if (collision.gameObject.name == "Laser")
         {
             playerController.canMove = false;
+            controlCircle.SetActive(false);
+            dashButton.SetActive(false);
+            invButton.SetActive(false);
 
             touchedPosY = collision.transform.position.y + (collision.gameObject.GetComponent<Collider2D>().offset.y);
             playerPosY = transform.position.y + (gameObject.GetComponent<EdgeCollider2D>().offset.y);
@@ -57,6 +80,7 @@ public class PlayerShocked : MonoBehaviour
             }
 
             isShocking = true;
+            afterHit = true;
         }
     }
 }

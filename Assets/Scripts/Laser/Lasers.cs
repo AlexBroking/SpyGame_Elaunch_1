@@ -9,6 +9,8 @@ public class Lasers : MonoBehaviour
     private Animator laserAni;
     public Animator buttonAniOne;
     public Animator buttonAniTwo;
+    private GameObject buttonOne;
+    private GameObject buttonTwo;
     public bool laserOn;
 
     private float scale;
@@ -20,9 +22,13 @@ public class Lasers : MonoBehaviour
     // timer //
     public int laserSeconds;
     private float timer;
+    private GameObject player;
 
     void Start()
     {
+        buttonOne = gameObject.transform.GetChild(0).gameObject;
+        buttonTwo = gameObject.transform.GetChild(1).gameObject;
+        player = GameObject.Find("Player");
         leftOutput = this.gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).transform.position;
         rightOutput = this.gameObject.transform.GetChild(3).gameObject.transform.GetChild(0).transform.position;
 
@@ -40,19 +46,36 @@ public class Lasers : MonoBehaviour
 
         laser.transform.GetComponent<SpriteRenderer>().enabled = true;
         laser.transform.GetComponent<BoxCollider2D>().enabled = true;
+
+        laser.transform.position = new Vector3((leftOutput.x + rightOutput.x), (leftOutput.y + rightOutput.y - 0.10f), 0) / 2;
+        laser.GetComponent<BoxCollider2D>().offset = new Vector2(0, -1.46f);
+
+
+        for (int i = 0; i < this.gameObject.transform.childCount - 1; i++)
+        {
+            GameObject usedChild = this.gameObject.transform.GetChild(i).gameObject;
+            float childY = usedChild.transform.position.y;
+            float childPositionY = childY + (usedChild.GetComponent<Collider2D>().offset.y) - 1.46f;
+            int testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+            usedChild.GetComponent<SpriteRenderer>().sortingOrder = (testint * 3) + 7;
+        }
+
+        LaserOrder();
+
+    }
+
+    private void LaserOrder()
+    {
+        GameObject usedChild = this.gameObject.transform.GetChild(4).gameObject;
+        float childY = usedChild.transform.position.y;
+        float childPositionY = childY + (usedChild.GetComponent<Collider2D>().offset.y) - 1.46f;
+        int testint = Mathf.FloorToInt(10000 - (childPositionY / (1.46f / 3)));
+        usedChild.GetComponent<SpriteRenderer>().sortingOrder = (testint * 3) - 6;
     }
 
 
     void Update()
     {
-        laser.transform.position = new Vector3((leftOutput.x + rightOutput.x), (leftOutput.y + rightOutput.y), 0) / 2;
-
-        if (laserOn == true)
-        {
-            laserAni.SetInteger("LaserAnimation", 0);
-            
-        }
-
         if (laserOn == false)
         {
             laserAni.SetInteger("LaserAnimation", 1);
@@ -66,7 +89,15 @@ public class Lasers : MonoBehaviour
                 laser.transform.GetComponent<BoxCollider2D>().enabled = true;
                 buttonAniOne.SetInteger("Button", 1);
                 buttonAniTwo.SetInteger("Button", 1);
+                this.gameObject.transform.GetChild(3).GetComponent<AudioSource>().Play();
+                this.gameObject.transform.GetChild(4).GetComponent<AudioSource>().Play();
+
             }
+        }
+
+        if (laserOn == true)
+        {
+            laserAni.SetInteger("LaserAnimation", 0);
         }
     }
 }

@@ -23,7 +23,6 @@ public class SortingLayer : MonoBehaviour
 
     private float playerY;
 
-
     void Start()
     {
         playerObject = GameObject.Find("Player");

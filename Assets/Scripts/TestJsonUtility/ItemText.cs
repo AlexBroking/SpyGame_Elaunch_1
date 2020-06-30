@@ -12,5 +12,8 @@ public class ItemText
 public class Iteminfo
 {
     public string id;
+    public string Kind;
+    public string Image;
+    public string HeadTekst;
     public string Tekst;
 }
