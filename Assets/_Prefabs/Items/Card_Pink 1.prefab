@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_Sprite: {fileID: 21300000, guid: dcfb6d8c40057834cacec536997fcff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   glowImage: {fileID: 21300000, guid: 6d6646a13a0d8bd478ed63643d379c3b, type: 3}
   invItem: {fileID: 21300000, guid: 430e024d07f5d934596d4ca27e75c1a9, type: 3}
   tekstItem: Pink
+  pTekst: 
   hacking: 0
 --- !u!1 &6728368391625878747
 GameObject:

@@ -129,7 +129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_Sprite: {fileID: 21300000, guid: 41d7e5f2d8b408144ae9f72215f07f95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -184,4 +184,5 @@ MonoBehaviour:
   glowImage: {fileID: 21300000, guid: 3bd991a57c569864f8030406e5c65452, type: 3}
   invItem: {fileID: 21300000, guid: ab6d78e104804194c8f2029622cd0851, type: 3}
   tekstItem: Blue
+  pTekst: 
   hacking: 0
